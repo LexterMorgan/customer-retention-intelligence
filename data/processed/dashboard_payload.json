@@ -1,0 +1,967 @@
+{
+  "by_billing": {
+    "charge_band": [
+      {
+        "avg_monthly_charge": -5.47,
+        "category": "Credit (<$0)",
+        "churn_rate_pct": 26.32,
+        "churned_customers": 30,
+        "existing_customers": 114,
+        "pct_of_total_churn": 1.61,
+        "retained_customers": 84
+      },
+      {
+        "avg_monthly_charge": 21.58,
+        "category": "Low (<$30)",
+        "churn_rate_pct": 11.07,
+        "churned_customers": 157,
+        "existing_customers": 1418,
+        "pct_of_total_churn": 8.4,
+        "retained_customers": 1261
+      },
+      {
+        "avg_monthly_charge": 42.47,
+        "category": "$30-49",
+        "churn_rate_pct": 34.78,
+        "churned_customers": 192,
+        "existing_customers": 552,
+        "pct_of_total_churn": 10.27,
+        "retained_customers": 360
+      },
+      {
+        "avg_monthly_charge": 59.96,
+        "category": "$50-69",
+        "churn_rate_pct": 21.66,
+        "churned_customers": 232,
+        "existing_customers": 1071,
+        "pct_of_total_churn": 12.41,
+        "retained_customers": 839
+      },
+      {
+        "avg_monthly_charge": 80.16,
+        "category": "$70-89",
+        "churn_rate_pct": 39.84,
+        "churned_customers": 690,
+        "existing_customers": 1732,
+        "pct_of_total_churn": 36.92,
+        "retained_customers": 1042
+      },
+      {
+        "avg_monthly_charge": 101.06,
+        "category": "$90+",
+        "churn_rate_pct": 33.37,
+        "churned_customers": 568,
+        "existing_customers": 1702,
+        "pct_of_total_churn": 30.39,
+        "retained_customers": 1134
+      }
+    ],
+    "paperless_billing": [
+      {
+        "avg_monthly_charge": 73.39,
+        "category": "Yes",
+        "churn_rate_pct": 35.23,
+        "churned_customers": 1400,
+        "existing_customers": 3974,
+        "pct_of_total_churn": 74.91,
+        "retained_customers": 2574
+      },
+      {
+        "avg_monthly_charge": 52.33,
+        "category": "No",
+        "churn_rate_pct": 17.93,
+        "churned_customers": 469,
+        "existing_customers": 2615,
+        "pct_of_total_churn": 25.09,
+        "retained_customers": 2146
+      }
+    ],
+    "payment_method": [
+      {
+        "avg_monthly_charge": 72.36,
+        "category": "Bank Withdrawal",
+        "churn_rate_pct": 35.65,
+        "churned_customers": 1329,
+        "existing_customers": 3728,
+        "pct_of_total_churn": 71.11,
+        "retained_customers": 2399
+      },
+      {
+        "avg_monthly_charge": 56.49,
+        "category": "Credit Card",
+        "churn_rate_pct": 15.81,
+        "churned_customers": 398,
+        "existing_customers": 2518,
+        "pct_of_total_churn": 21.29,
+        "retained_customers": 2120
+      },
+      {
+        "avg_monthly_charge": 48.11,
+        "category": "Mailed Check",
+        "churn_rate_pct": 41.4,
+        "churned_customers": 142,
+        "existing_customers": 343,
+        "pct_of_total_churn": 7.6,
+        "retained_customers": 201
+      }
+    ]
+  },
+  "by_contract": [
+    {
+      "category": "Month-to-Month",
+      "churn_rate_pct": 51.69,
+      "churned_customers": 1655,
+      "existing_customers": 3202,
+      "pct_of_total_churn": 88.55,
+      "retained_customers": 1547
+    },
+    {
+      "category": "One Year",
+      "churn_rate_pct": 10.88,
+      "churned_customers": 166,
+      "existing_customers": 1526,
+      "pct_of_total_churn": 8.88,
+      "retained_customers": 1360
+    },
+    {
+      "category": "Two Year",
+      "churn_rate_pct": 2.58,
+      "churned_customers": 48,
+      "existing_customers": 1861,
+      "pct_of_total_churn": 2.57,
+      "retained_customers": 1813
+    }
+  ],
+  "by_demographics": {
+    "age_band": [
+      {
+        "category": "Under 30",
+        "churn_rate_pct": 23.35,
+        "churned_customers": 304,
+        "existing_customers": 1302,
+        "pct_of_total_churn": 16.27,
+        "retained_customers": 998
+      },
+      {
+        "category": "30-39",
+        "churn_rate_pct": 26.59,
+        "churned_customers": 309,
+        "existing_customers": 1162,
+        "pct_of_total_churn": 16.53,
+        "retained_customers": 853
+      },
+      {
+        "category": "40-49",
+        "churn_rate_pct": 25.54,
+        "churned_customers": 318,
+        "existing_customers": 1245,
+        "pct_of_total_churn": 17.01,
+        "retained_customers": 927
+      },
+      {
+        "category": "50-59",
+        "churn_rate_pct": 26.24,
+        "churned_customers": 307,
+        "existing_customers": 1170,
+        "pct_of_total_churn": 16.43,
+        "retained_customers": 863
+      },
+      {
+        "category": "60-69",
+        "churn_rate_pct": 32.15,
+        "churned_customers": 307,
+        "existing_customers": 955,
+        "pct_of_total_churn": 16.43,
+        "retained_customers": 648
+      },
+      {
+        "category": "70+",
+        "churn_rate_pct": 42.91,
+        "churned_customers": 324,
+        "existing_customers": 755,
+        "pct_of_total_churn": 17.34,
+        "retained_customers": 431
+      }
+    ],
+    "dependents": [
+      {
+        "category": "Has Dependents",
+        "churn_rate_pct": 6.85,
+        "churned_customers": 106,
+        "existing_customers": 1547,
+        "pct_of_total_churn": 5.67,
+        "retained_customers": 1441
+      },
+      {
+        "category": "No Dependents",
+        "churn_rate_pct": 34.97,
+        "churned_customers": 1763,
+        "existing_customers": 5042,
+        "pct_of_total_churn": 94.33,
+        "retained_customers": 3279
+      }
+    ],
+    "gender": [
+      {
+        "category": "Female",
+        "churn_rate_pct": 28.65,
+        "churned_customers": 939,
+        "existing_customers": 3277,
+        "pct_of_total_churn": 50.24,
+        "retained_customers": 2338
+      },
+      {
+        "category": "Male",
+        "churn_rate_pct": 28.08,
+        "churned_customers": 930,
+        "existing_customers": 3312,
+        "pct_of_total_churn": 49.76,
+        "retained_customers": 2382
+      }
+    ],
+    "married": [
+      {
+        "category": "Yes",
+        "churn_rate_pct": 20.16,
+        "churned_customers": 669,
+        "existing_customers": 3318,
+        "pct_of_total_churn": 35.79,
+        "retained_customers": 2649
+      },
+      {
+        "category": "No",
+        "churn_rate_pct": 36.69,
+        "churned_customers": 1200,
+        "existing_customers": 3271,
+        "pct_of_total_churn": 64.21,
+        "retained_customers": 2071
+      }
+    ]
+  },
+  "by_internet": [
+    {
+      "category": "Fiber Optic",
+      "churn_rate_pct": 42.13,
+      "churned_customers": 1236,
+      "existing_customers": 2934,
+      "pct_of_total_churn": 66.13,
+      "retained_customers": 1698
+    },
+    {
+      "category": "Cable",
+      "churn_rate_pct": 27.52,
+      "churned_customers": 213,
+      "existing_customers": 774,
+      "pct_of_total_churn": 11.4,
+      "retained_customers": 561
+    },
+    {
+      "category": "DSL",
+      "churn_rate_pct": 19.97,
+      "churned_customers": 307,
+      "existing_customers": 1537,
+      "pct_of_total_churn": 16.43,
+      "retained_customers": 1230
+    },
+    {
+      "category": "N/A",
+      "churn_rate_pct": 8.41,
+      "churned_customers": 113,
+      "existing_customers": 1344,
+      "pct_of_total_churn": 6.05,
+      "retained_customers": 1231
+    }
+  ],
+  "by_offer": [
+    {
+      "category": "None",
+      "churn_rate_pct": 29.21,
+      "churned_customers": 1051,
+      "existing_customers": 3598,
+      "pct_of_total_churn": 56.23,
+      "retained_customers": 2547
+    },
+    {
+      "category": "Offer A",
+      "churn_rate_pct": 6.73,
+      "churned_customers": 35,
+      "existing_customers": 520,
+      "pct_of_total_churn": 1.87,
+      "retained_customers": 485
+    },
+    {
+      "category": "Offer B",
+      "churn_rate_pct": 12.26,
+      "churned_customers": 101,
+      "existing_customers": 824,
+      "pct_of_total_churn": 5.4,
+      "retained_customers": 723
+    },
+    {
+      "category": "Offer C",
+      "churn_rate_pct": 22.89,
+      "churned_customers": 95,
+      "existing_customers": 415,
+      "pct_of_total_churn": 5.08,
+      "retained_customers": 320
+    },
+    {
+      "category": "Offer D",
+      "churn_rate_pct": 26.74,
+      "churned_customers": 161,
+      "existing_customers": 602,
+      "pct_of_total_churn": 8.61,
+      "retained_customers": 441
+    },
+    {
+      "category": "Offer E",
+      "churn_rate_pct": 67.62,
+      "churned_customers": 426,
+      "existing_customers": 630,
+      "pct_of_total_churn": 22.79,
+      "retained_customers": 204
+    }
+  ],
+  "by_tenure": [
+    {
+      "category": "0-6 months",
+      "churn_rate_pct": 77.17,
+      "churned_customers": 784,
+      "existing_customers": 1016,
+      "pct_of_total_churn": 41.95,
+      "retained_customers": 232
+    },
+    {
+      "category": "7-12 months",
+      "churn_rate_pct": 35.34,
+      "churned_customers": 253,
+      "existing_customers": 716,
+      "pct_of_total_churn": 13.54,
+      "retained_customers": 463
+    },
+    {
+      "category": "13-24 months",
+      "churn_rate_pct": 28.71,
+      "churned_customers": 294,
+      "existing_customers": 1024,
+      "pct_of_total_churn": 15.73,
+      "retained_customers": 730
+    },
+    {
+      "category": "25-36 months",
+      "churn_rate_pct": 21.63,
+      "churned_customers": 180,
+      "existing_customers": 832,
+      "pct_of_total_churn": 9.63,
+      "retained_customers": 652
+    },
+    {
+      "category": "37-48 months",
+      "churn_rate_pct": 19.03,
+      "churned_customers": 145,
+      "existing_customers": 762,
+      "pct_of_total_churn": 7.76,
+      "retained_customers": 617
+    },
+    {
+      "category": "49-72 months",
+      "churn_rate_pct": 9.51,
+      "churned_customers": 213,
+      "existing_customers": 2239,
+      "pct_of_total_churn": 11.4,
+      "retained_customers": 2026
+    }
+  ],
+  "churn_reasons": {
+    "categories": [
+      {
+        "category": "Competitor",
+        "churner_count": 841,
+        "pct_of_churners": 45.0
+      },
+      {
+        "category": "Dissatisfaction",
+        "churner_count": 321,
+        "pct_of_churners": 17.17
+      },
+      {
+        "category": "Attitude",
+        "churner_count": 314,
+        "pct_of_churners": 16.8
+      },
+      {
+        "category": "Price",
+        "churner_count": 211,
+        "pct_of_churners": 11.29
+      },
+      {
+        "category": "Other",
+        "churner_count": 182,
+        "pct_of_churners": 9.74
+      }
+    ],
+    "reasons": [
+      {
+        "churner_count": 313,
+        "cumulative_pct_of_churners": 16.75,
+        "pct_of_churners": 16.75,
+        "rank": 1,
+        "reason": "Competitor had better devices"
+      },
+      {
+        "churner_count": 311,
+        "cumulative_pct_of_churners": 33.39,
+        "pct_of_churners": 16.64,
+        "rank": 2,
+        "reason": "Competitor made better offer"
+      },
+      {
+        "churner_count": 220,
+        "cumulative_pct_of_churners": 45.16,
+        "pct_of_churners": 11.77,
+        "rank": 3,
+        "reason": "Attitude of support person"
+      },
+      {
+        "churner_count": 130,
+        "cumulative_pct_of_churners": 52.11,
+        "pct_of_churners": 6.96,
+        "rank": 4,
+        "reason": "Don't know"
+      },
+      {
+        "churner_count": 117,
+        "cumulative_pct_of_churners": 58.37,
+        "pct_of_churners": 6.26,
+        "rank": 5,
+        "reason": "Competitor offered more data"
+      },
+      {
+        "churner_count": 100,
+        "cumulative_pct_of_churners": 63.72,
+        "pct_of_churners": 5.35,
+        "rank": 6,
+        "reason": "Competitor offered higher download speeds"
+      },
+      {
+        "churner_count": 94,
+        "cumulative_pct_of_churners": 68.75,
+        "pct_of_churners": 5.03,
+        "rank": 7,
+        "reason": "Attitude of service provider"
+      },
+      {
+        "churner_count": 78,
+        "cumulative_pct_of_churners": 72.93,
+        "pct_of_churners": 4.17,
+        "rank": 8,
+        "reason": "Price too high"
+      },
+      {
+        "churner_count": 77,
+        "cumulative_pct_of_churners": 77.05,
+        "pct_of_churners": 4.12,
+        "rank": 9,
+        "reason": "Product dissatisfaction"
+      },
+      {
+        "churner_count": 72,
+        "cumulative_pct_of_churners": 80.9,
+        "pct_of_churners": 3.85,
+        "rank": 10,
+        "reason": "Network reliability"
+      },
+      {
+        "churner_count": 64,
+        "cumulative_pct_of_churners": 84.32,
+        "pct_of_churners": 3.42,
+        "rank": 11,
+        "reason": "Long distance charges"
+      },
+      {
+        "churner_count": 63,
+        "cumulative_pct_of_churners": 87.69,
+        "pct_of_churners": 3.37,
+        "rank": 12,
+        "reason": "Service dissatisfaction"
+      },
+      {
+        "churner_count": 46,
+        "cumulative_pct_of_churners": 90.16,
+        "pct_of_churners": 2.46,
+        "rank": 13,
+        "reason": "Moved"
+      },
+      {
+        "churner_count": 39,
+        "cumulative_pct_of_churners": 92.24,
+        "pct_of_churners": 2.09,
+        "rank": 14,
+        "reason": "Extra data charges"
+      },
+      {
+        "churner_count": 37,
+        "cumulative_pct_of_churners": 94.22,
+        "pct_of_churners": 1.98,
+        "rank": 15,
+        "reason": "Limited range of services"
+      },
+      {
+        "churner_count": 31,
+        "cumulative_pct_of_churners": 95.88,
+        "pct_of_churners": 1.66,
+        "rank": 16,
+        "reason": "Poor expertise of online support"
+      },
+      {
+        "churner_count": 30,
+        "cumulative_pct_of_churners": 97.49,
+        "pct_of_churners": 1.61,
+        "rank": 17,
+        "reason": "Lack of affordable download/upload speed"
+      },
+      {
+        "churner_count": 29,
+        "cumulative_pct_of_churners": 99.04,
+        "pct_of_churners": 1.55,
+        "rank": 18,
+        "reason": "Lack of self-service on Website"
+      },
+      {
+        "churner_count": 12,
+        "cumulative_pct_of_churners": 99.68,
+        "pct_of_churners": 0.64,
+        "rank": 19,
+        "reason": "Poor expertise of phone support"
+      },
+      {
+        "churner_count": 6,
+        "cumulative_pct_of_churners": 100.0,
+        "pct_of_churners": 0.32,
+        "rank": 20,
+        "reason": "Deceased"
+      }
+    ],
+    "top_5_reasons": [
+      {
+        "churner_count": 313,
+        "cumulative_pct_of_churners": 16.75,
+        "pct_of_churners": 16.75,
+        "rank": 1,
+        "reason": "Competitor had better devices"
+      },
+      {
+        "churner_count": 311,
+        "cumulative_pct_of_churners": 33.39,
+        "pct_of_churners": 16.64,
+        "rank": 2,
+        "reason": "Competitor made better offer"
+      },
+      {
+        "churner_count": 220,
+        "cumulative_pct_of_churners": 45.16,
+        "pct_of_churners": 11.77,
+        "rank": 3,
+        "reason": "Attitude of support person"
+      },
+      {
+        "churner_count": 130,
+        "cumulative_pct_of_churners": 52.11,
+        "pct_of_churners": 6.96,
+        "rank": 4,
+        "reason": "Don't know"
+      },
+      {
+        "churner_count": 117,
+        "cumulative_pct_of_churners": 58.37,
+        "pct_of_churners": 6.26,
+        "rank": 5,
+        "reason": "Competitor offered more data"
+      }
+    ],
+    "top_reasons": [
+      {
+        "churner_count": 313,
+        "cumulative_pct_of_churners": 16.75,
+        "pct_of_churners": 16.75,
+        "rank": 1,
+        "reason": "Competitor had better devices"
+      },
+      {
+        "churner_count": 311,
+        "cumulative_pct_of_churners": 33.39,
+        "pct_of_churners": 16.64,
+        "rank": 2,
+        "reason": "Competitor made better offer"
+      },
+      {
+        "churner_count": 220,
+        "cumulative_pct_of_churners": 45.16,
+        "pct_of_churners": 11.77,
+        "rank": 3,
+        "reason": "Attitude of support person"
+      },
+      {
+        "churner_count": 130,
+        "cumulative_pct_of_churners": 52.11,
+        "pct_of_churners": 6.96,
+        "rank": 4,
+        "reason": "Don't know"
+      },
+      {
+        "churner_count": 117,
+        "cumulative_pct_of_churners": 58.37,
+        "pct_of_churners": 6.26,
+        "rank": 5,
+        "reason": "Competitor offered more data"
+      },
+      {
+        "churner_count": 100,
+        "cumulative_pct_of_churners": 63.72,
+        "pct_of_churners": 5.35,
+        "rank": 6,
+        "reason": "Competitor offered higher download speeds"
+      },
+      {
+        "churner_count": 94,
+        "cumulative_pct_of_churners": 68.75,
+        "pct_of_churners": 5.03,
+        "rank": 7,
+        "reason": "Attitude of service provider"
+      },
+      {
+        "churner_count": 78,
+        "cumulative_pct_of_churners": 72.93,
+        "pct_of_churners": 4.17,
+        "rank": 8,
+        "reason": "Price too high"
+      },
+      {
+        "churner_count": 77,
+        "cumulative_pct_of_churners": 77.05,
+        "pct_of_churners": 4.12,
+        "rank": 9,
+        "reason": "Product dissatisfaction"
+      },
+      {
+        "churner_count": 72,
+        "cumulative_pct_of_churners": 80.9,
+        "pct_of_churners": 3.85,
+        "rank": 10,
+        "reason": "Network reliability"
+      }
+    ],
+    "total_churned": 1869
+  },
+  "contract_tenure_matrix": [
+    {
+      "churn_rate_pct": 81.33,
+      "churned_customers": 780,
+      "contract": "Month-to-Month",
+      "existing_customers": 959,
+      "tenure_band": "0-6 months"
+    },
+    {
+      "churn_rate_pct": 14.29,
+      "churned_customers": 4,
+      "contract": "One Year",
+      "existing_customers": 28,
+      "tenure_band": "0-6 months"
+    },
+    {
+      "churn_rate_pct": 0.0,
+      "churned_customers": 0,
+      "contract": "Two Year",
+      "existing_customers": 29,
+      "tenure_band": "0-6 months"
+    },
+    {
+      "churn_rate_pct": 44.69,
+      "churned_customers": 244,
+      "contract": "Month-to-Month",
+      "existing_customers": 546,
+      "tenure_band": "7-12 months"
+    },
+    {
+      "churn_rate_pct": 9.57,
+      "churned_customers": 9,
+      "contract": "One Year",
+      "existing_customers": 94,
+      "tenure_band": "7-12 months"
+    },
+    {
+      "churn_rate_pct": 0.0,
+      "churned_customers": 0,
+      "contract": "Two Year",
+      "existing_customers": 76,
+      "tenure_band": "7-12 months"
+    },
+    {
+      "churn_rate_pct": 40.52,
+      "churned_customers": 278,
+      "contract": "Month-to-Month",
+      "existing_customers": 686,
+      "tenure_band": "13-24 months"
+    },
+    {
+      "churn_rate_pct": 7.44,
+      "churned_customers": 16,
+      "contract": "One Year",
+      "existing_customers": 215,
+      "tenure_band": "13-24 months"
+    },
+    {
+      "churn_rate_pct": 0.0,
+      "churned_customers": 0,
+      "contract": "Two Year",
+      "existing_customers": 123,
+      "tenure_band": "13-24 months"
+    },
+    {
+      "churn_rate_pct": 36.49,
+      "churned_customers": 158,
+      "contract": "Month-to-Month",
+      "existing_customers": 433,
+      "tenure_band": "25-36 months"
+    },
+    {
+      "churn_rate_pct": 7.46,
+      "churned_customers": 20,
+      "contract": "One Year",
+      "existing_customers": 268,
+      "tenure_band": "25-36 months"
+    },
+    {
+      "churn_rate_pct": 1.53,
+      "churned_customers": 2,
+      "contract": "Two Year",
+      "existing_customers": 131,
+      "tenure_band": "25-36 months"
+    },
+    {
+      "churn_rate_pct": 37.59,
+      "churned_customers": 106,
+      "contract": "Month-to-Month",
+      "existing_customers": 282,
+      "tenure_band": "37-48 months"
+    },
+    {
+      "churn_rate_pct": 12.59,
+      "churned_customers": 35,
+      "contract": "One Year",
+      "existing_customers": 278,
+      "tenure_band": "37-48 months"
+    },
+    {
+      "churn_rate_pct": 1.98,
+      "churned_customers": 4,
+      "contract": "Two Year",
+      "existing_customers": 202,
+      "tenure_band": "37-48 months"
+    },
+    {
+      "churn_rate_pct": 30.07,
+      "churned_customers": 89,
+      "contract": "Month-to-Month",
+      "existing_customers": 296,
+      "tenure_band": "49-72 months"
+    },
+    {
+      "churn_rate_pct": 12.75,
+      "churned_customers": 82,
+      "contract": "One Year",
+      "existing_customers": 643,
+      "tenure_band": "49-72 months"
+    },
+    {
+      "churn_rate_pct": 3.23,
+      "churned_customers": 42,
+      "contract": "Two Year",
+      "existing_customers": 1300,
+      "tenure_band": "49-72 months"
+    }
+  ],
+  "filter_dimensions": {
+    "age_band": [
+      "Under 30",
+      "30-39",
+      "40-49",
+      "50-59",
+      "60-69",
+      "70+"
+    ],
+    "charge_band": [
+      "Credit (<$0)",
+      "Low (<$30)",
+      "$30-49",
+      "$50-69",
+      "$70-89",
+      "$90+"
+    ],
+    "contract": [
+      "Month-to-Month",
+      "One Year",
+      "Two Year"
+    ],
+    "customer_status": [
+      "Churned",
+      "Stayed",
+      "Joined"
+    ],
+    "descriptive_churn_risk_tier": [
+      "Very High",
+      "High",
+      "Medium",
+      "Low"
+    ],
+    "internet_type": [
+      "Fiber Optic",
+      "Cable",
+      "DSL",
+      "N/A"
+    ],
+    "offer": [
+      "None",
+      "Offer A",
+      "Offer B",
+      "Offer C",
+      "Offer D",
+      "Offer E"
+    ],
+    "payment_method": [
+      "Bank Withdrawal",
+      "Credit Card",
+      "Mailed Check"
+    ],
+    "tenure_band": [
+      "0-6 months",
+      "7-12 months",
+      "13-24 months",
+      "25-36 months",
+      "37-48 months",
+      "49-72 months"
+    ]
+  },
+  "kpis": {
+    "churn_rate_pct": 28.37,
+    "churned_customers": 1869,
+    "existing_customers": 6589,
+    "joined_customers": 454,
+    "mrvl": 137086.65,
+    "retained_customers": 4720,
+    "retention_rate_pct": 71.63,
+    "total_customers": 7043
+  },
+  "metadata": {
+    "analysis_notes": "Descriptive/associational analysis only. Risk tiers are rule-based segments, not predictive probabilities. Scenario values are illustrative what-ifs, not forecasts.",
+    "column_count": 46,
+    "definitions_ref": "docs/churn_definition.md",
+    "generated_by": "analysis/dashboard_payload.py",
+    "joined_excluded_from_rates": true,
+    "row_count": 7043,
+    "snapshot": "Q2 2022",
+    "source": "data/processed/customers_clean.csv",
+    "source_sha256": "08eccd11605de4f941112c57eab7421a138abef32a326934099a0fb72eba477b"
+  },
+  "mrvl": {
+    "avg_monthly_charge_churned": 73.35,
+    "churned_customers": 1869,
+    "definition": "SUM(Monthly Charge) WHERE Customer Status = 'Churned'",
+    "mrvl": 137086.65
+  },
+  "risk_tiers": [
+    {
+      "avg_risk_points": 7.52,
+      "churn_rate_pct": 66.51,
+      "churned_customers": 1434,
+      "existing_customers": 2156,
+      "pct_of_total_churn": 76.73,
+      "tier": "Very High"
+    },
+    {
+      "avg_risk_points": 4.49,
+      "churn_rate_pct": 20.65,
+      "churned_customers": 260,
+      "existing_customers": 1259,
+      "pct_of_total_churn": 13.91,
+      "tier": "High"
+    },
+    {
+      "avg_risk_points": 2.42,
+      "churn_rate_pct": 7.29,
+      "churned_customers": 125,
+      "existing_customers": 1714,
+      "pct_of_total_churn": 6.69,
+      "tier": "Medium"
+    },
+    {
+      "avg_risk_points": 0.57,
+      "churn_rate_pct": 3.42,
+      "churned_customers": 50,
+      "existing_customers": 1460,
+      "pct_of_total_churn": 2.68,
+      "tier": "Low"
+    }
+  ],
+  "scenario": {
+    "churned_in_segment": 444,
+    "illustrative_only": true,
+    "name": "Retain 10% of churned in M2M + 0-6 months + Fiber Optic",
+    "retention_assumption_pct": 10.0,
+    "scenario_annual_preserved": 42296.22,
+    "scenario_monthly_preserved": 3524.68,
+    "scenario_retained_customers": 44,
+    "segment": "M2M + 0-6 months + Fiber Optic",
+    "segment_monthly_lost": 35246.85
+  },
+  "segments": [
+    {
+      "churn_rate_pct": 91.17,
+      "churned_customers": 444,
+      "existing_customers": 487,
+      "pct_of_total_churn": 23.76,
+      "segment": "M2M + 0-6 months + Fiber Optic",
+      "sql_label": "F. M2M + 0-6 months + Fiber Optic"
+    },
+    {
+      "churn_rate_pct": 81.33,
+      "churned_customers": 780,
+      "existing_customers": 959,
+      "pct_of_total_churn": 41.73,
+      "segment": "Early-Tenure Month-to-Month",
+      "sql_label": "A. Early-Tenure Month-to-Month"
+    },
+    {
+      "churn_rate_pct": 61.64,
+      "churned_customers": 1107,
+      "existing_customers": 1796,
+      "pct_of_total_churn": 59.23,
+      "segment": "Month-to-Month Fiber Optic",
+      "sql_label": "B. Month-to-Month Fiber Optic"
+    },
+    {
+      "churn_rate_pct": 58.19,
+      "churned_customers": 1549,
+      "existing_customers": 2662,
+      "pct_of_total_churn": 82.88,
+      "segment": "Month-to-Month No Dependents",
+      "sql_label": "C. Month-to-Month No Dependents"
+    },
+    {
+      "churn_rate_pct": 9.51,
+      "churned_customers": 213,
+      "existing_customers": 2239,
+      "pct_of_total_churn": 11.4,
+      "segment": "Long-Tenure Customer Base",
+      "sql_label": "E. Long-Tenure Customer Base"
+    },
+    {
+      "churn_rate_pct": 3.06,
+      "churned_customers": 46,
+      "existing_customers": 1502,
+      "pct_of_total_churn": 2.46,
+      "segment": "Stable Two-Year Customers",
+      "sql_label": "D. Stable Two-Year Customers"
+    }
+  ]
+}

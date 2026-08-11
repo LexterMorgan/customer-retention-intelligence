@@ -1,0 +1,48 @@
+# OS
+.DS_Store
+**/.DS_Store
+
+# Excel temporary / lock files
+~$*
+*.tmp
+
+# Python
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Node / frontend
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+.vite/
+**/.vite/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Tableau temporary / backup files
+tableau/*.twb.bak
+tableau/*.twb.bak.*
+*.twb.bak
+*.twb.bak.*
+hyperd*.log
+**/hyperd*.log
+
+# IDE / editor
+.vscode/
+.idea/
+
+# Coverage / test artifacts
+.coverage
+.pytest_cache/
+htmlcov/
+
+# Matplotlib cache
+**/.mpl/
