@@ -1,424 +1,277 @@
 # Customer Retention Intelligence
 
-A customer churn and retention analytics project built to transform raw telecom customer data into validated business insights, customer risk segments, and an executive-facing analytics dashboard.
+[![Live dashboard](https://img.shields.io/badge/Live%20dashboard-customer--retention--intelligence.vercel.app-2563EB?style=flat-square&logo=vercel&logoColor=white)](https://customer-retention-intelligence.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-Source%20code-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/LexterMorgan/customer-retention-intelligence)
 
-The project combines **Python, SQL, and React/TypeScript** to create an end-to-end analytics workflow focused on understanding customer churn and identifying where retention teams should prioritize their attention.
+[![Python](https://img.shields.io/badge/Python-data%20analysis-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![Pandas](https://img.shields.io/badge/pandas-data%20preparation-150458?style=flat-square&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+[![NumPy](https://img.shields.io/badge/NumPy-analysis-013243?style=flat-square&logo=numpy&logoColor=white)](https://numpy.org/)
+[![SQL](https://img.shields.io/badge/SQL-business%20analysis-4479A1?style=flat-square&logo=mysql&logoColor=white)](https://en.wikipedia.org/wiki/SQL)
+[![SQLite](https://img.shields.io/badge/SQLite-reproducible%20queries-003B57?style=flat-square&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
+[![React](https://img.shields.io/badge/React-dashboard-149ECA?style=flat-square&logo=react&logoColor=white)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-frontend-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-tooling-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vite.dev/)
+[![Recharts](https://img.shields.io/badge/Recharts-visualization-22C55E?style=flat-square)](https://recharts.org/)
 
----
+An evidence-first customer churn and retention analysis built around one practical question:
 
-## Business Problem
+> Who is leaving, where is churn concentrated, and which customers or segments should a retention team investigate first?
 
-Customer churn is one of the most important problems for subscription-based businesses.
+The project transforms a telecom customer snapshot into validated business findings, descriptive risk segments, business-impact analysis, and an executive-facing dashboard.
 
-Understanding the overall churn rate is not enough. A useful retention analysis needs to identify **where churn is concentrated, which customer characteristics are associated with higher churn, and which segments should be investigated first.**
+## Executive summary
 
-This project focuses on answering:
+The dataset contains **7,043 customers** from a Q2 2022 California telecom snapshot.
 
-> **Who is leaving, where is churn concentrated, and which customer segments should a retention team investigate first?**
+| Metric | Value |
+|---|---:|
+| Total customers | 7,043 |
+| Existing customers analyzed | 6,589 |
+| Churned customers | 1,869 |
+| Retained customers | 4,720 |
+| New customers excluded from retention rates | 454 |
+| Churn rate | **28.37%** |
+| Retention rate | **71.63%** |
 
-The objective is to move from raw customer records to a structured retention intelligence workflow:
+The main finding is that churn is not evenly distributed. It is concentrated among customers with a flexible contract, short tenure, and specific service combinations.
 
-```text
-Raw Customer Data
-        ↓
-Data Cleaning & Validation
-        ↓
-Exploratory Analysis
-        ↓
-SQL Business Analysis
-        ↓
-Risk Segmentation
-        ↓
-Dashboard Payload
-        ↓
-Executive Dashboard
-```
+## Where churn concentrates
 
----
+| Pattern | Finding | Why it matters |
+|---|---|---|
+| Month-to-Month contracts | **51.7% churn** and **88.6% of all churn** | The largest retention volume sits among customers without long-term commitment |
+| 0–6 months tenure | **77.2% churn** and **42.0% of all departures** | Churn is heavily front-loaded in the early customer lifecycle |
+| Month-to-Month + 0–6 months + Fiber | **91.2% churn** across 487 customers | The clearest high-risk intersection in the dataset |
+| Fiber Optic customers | **42.1% churn rate** | Fiber is associated with higher churn, especially when combined with short tenure and Month-to-Month contracts |
+| Competitor-related exits | **45.0% of churned customers** | Devices, offers, speed, and data competition dominate stated exit reasons |
+| Two-Year contracts | **2.6% churn** | Long-term contracts are associated with much lower observed churn |
 
-## Objectives
+![Churn rate by contract](analysis/outputs/churn_rate_by_contract.png)
 
-The project was designed to answer several practical customer-retention questions:
+![Churn by tenure band](analysis/outputs/churn_by_tenure_band.png)
 
-- What is the overall customer churn rate?
-- Which contract types experience the highest churn?
+## Business impact
+
+The SQL business-impact analysis estimates:
+
+| Metric | Value |
+|---|---:|
+| Monthly recurring value associated with churned customers | **$137,086.65** |
+| Historical revenue from churned customers | **$3,684,459.82** |
+| Monthly recurring value associated with Month-to-Month churn | **$118,802.90** |
+
+These figures describe the analyzed dataset. They are not audited company financials or causal estimates of what a retention program would recover.
+
+## Questions answered
+
+The analysis investigates:
+
+- What is the overall churn and retention rate?
+- Which contract types have the highest churn?
 - How does churn change across customer tenure?
-- Which internet service types have higher churn?
+- Which internet service types show higher churn?
 - Which offers are associated with different churn patterns?
-- How does churn vary across payment methods and billing behavior?
-- Are certain demographic groups more exposed to churn?
-- Which customer segments represent the highest retention risk?
+- How does churn vary across billing and payment behavior?
+- Which customer characteristics are associated with churn?
+- Which segments contain the greatest concentration of departures?
 - Which customers should a retention team investigate first?
-- What is the potential business impact of churn?
-
----
-
-## Dataset
-
-The project uses a telecom customer dataset containing customer-level information covering:
-
-- Customer demographics
-- Customer tenure
-- Contract information
-- Internet services
-- Additional services
-- Payment methods
-- Monthly charges
-- Total charges
-- Churn status
-- Churn-related attributes
-
-The raw data is preserved separately from the processed analytical dataset.
-
-### Data Layers
-
-```text
-data/
-├── raw/
-│   ├── telecom_customer_churn.csv
-│   ├── telecom_data_dictionary.csv
-│   └── telecom_zipcode_population.csv
-│
-└── processed/
-    ├── customers_clean.csv
-    └── dashboard_payload.json
-```
-
----
-
-## Analytical Workflow
-
-### 1. Data Cleaning
-
-Python is used to prepare the raw customer data for analysis.
-
-The cleaning workflow includes:
-
-- Dataset inspection
-- Data type validation
-- Missing-value handling
-- Field standardization
-- Analytical variable preparation
-- Processed dataset generation
-
-The cleaned customer-level dataset becomes the foundation for the downstream analysis.
-
----
-
-### 2. Exploratory Data Analysis
-
-The exploratory analysis investigates churn across multiple customer dimensions.
-
-Key areas include:
-
-- Contract type
-- Customer tenure
-- Internet service
-- Offers
-- Payment methods
-- Monthly charges
-- Age
-- Customer demographics
-
-Supporting analytical outputs are generated in:
-
-```text
-analysis/outputs/
-```
-
-These visualizations are used to identify and validate the major churn patterns before translating them into dashboard insights.
-
----
-
-### 3. SQL Business Analysis
-
-SQL provides an independent analytical layer for answering the core business questions.
-
-The SQL workflow covers:
-
-| Analysis | Purpose |
-|---|---|
-| KPI Overview | Establish overall customer and churn metrics |
-| Churn by Contract | Identify contract-related churn patterns |
-| Churn by Tenure | Analyze churn across customer lifecycle stages |
-| Churn by Internet | Compare churn across internet services |
-| Churn by Offer | Evaluate churn patterns across offers |
-| Churn by Demographics | Investigate demographic differences |
-| Churn by Billing | Analyze billing and payment behavior |
-| Churn Reasons | Identify major churn reasons |
-| High-Risk Segments | Identify concentrated risk groups |
-| Customer Risk Ranking | Prioritize individual customers |
-| Business Impact | Connect churn patterns to business impact |
-
-The queries are organized under:
-
-```text
-sql/
-```
-
----
-
-## Customer Risk Analysis
-
-The project goes beyond simply reporting churn percentages.
-
-The analysis identifies customer segments where multiple churn-related characteristics overlap, allowing the dashboard to present a practical **retention prioritization framework**.
-
-The purpose of the risk analysis is not to claim that every customer in a high-risk segment will churn.
-
-Instead, it answers:
-
-> **Where should the retention team look first?**
-
-The workflow can be summarized as:
-
-```text
-Customer Profile
-       +
-Service & Contract Characteristics
-       +
-Billing Behavior
-       +
-Tenure
-       ↓
-Risk Indicators
-       ↓
-Risk Segments
-       ↓
-Retention Prioritization
-```
-
----
+- What is the potential value associated with churned customers?
 
 ## Dashboard
 
-The final analytical layer is an interactive executive-facing dashboard built with React and TypeScript.
-
-The dashboard translates the validated analytical outputs into a decision-oriented interface.
-
-### Dashboard Areas
-
-The dashboard includes:
+The interactive dashboard turns the analysis into a decision-oriented interface with:
 
 - Executive KPIs
 - Executive insights
-- Analytical views
-- Contract and tenure analysis
-- Billing analysis
+- Contract and tenure breakdowns
+- Billing and payment analysis
 - Demographic analysis
-- Customer segmentation
-- Risk tiers
-- Churn reason analysis
+- Internet-service comparisons
+- Churn-reason analysis
+- High-risk customer segments
+- Descriptive risk tiers
+- Customer prioritization
 - Interactive global filters
-- Customer risk prioritization
 
-The dashboard is designed around the retention decision workflow rather than simply presenting a collection of charts.
+The dashboard is designed to answer:
 
----
+1. What is happening?
+2. Where is the problem concentrated?
+3. Which customers or segments deserve attention?
+4. What should be investigated next?
 
-## Dashboard Architecture
-
-The frontend consumes a structured analytical payload generated from the validated analysis layer.
+## Analysis workflow
 
 ```text
-Python Analysis
-      ↓
-Processed Dataset
-      ↓
-Dashboard Payload
-      ↓
-React / TypeScript
-      ↓
-Interactive Dashboard
+Raw customer data
+        ↓
+Data cleaning and validation
+        ↓
+Exploratory analysis
+        ↓
+SQL business analysis
+        ↓
+Risk segmentation
+        ↓
+Dashboard payload
+        ↓
+Executive dashboard
 ```
 
-This keeps analytical calculations separate from the presentation layer and provides a clearer architecture between:
+### Data preparation
 
-- Data processing
-- Business logic
-- Dashboard presentation
+The cleaning workflow:
 
----
+- Preserves raw files separately from processed data
+- Standardizes fields and data types
+- Handles missing values using documented rules
+- Creates tenure, age, charge, churn, and add-on fields
+- Flags negative monthly charges without silently removing them
+- Validates customer and ZIP-code relationships
+- Produces a reproducible processed dataset
 
-## Technology Stack
+### SQL analysis
 
-### Data & Analytics
+The SQL layer covers:
 
-- Python
-- Pandas
-- NumPy
-- Matplotlib
+- Core KPI reconciliation
+- Churn by contract
+- Churn by tenure
+- Churn by internet service
+- Churn by offer
+- Churn by demographics
+- Churn by billing and payment method
+- Churn reasons
+- High-risk segment analysis
+- Descriptive risk tiers
+- Business-impact scenarios
 
-### SQL
+See [`sql/README.md`](sql/README.md) for the query sequence and metric definitions.
 
-- SQL
-- SQLite
+## Churn definition
 
-### Frontend
-
-- React
-- TypeScript
-- Vite
-- Tailwind CSS
-- Recharts
-
-### Testing & Validation
-
-- Python testing
-- TypeScript type checking
-- Production build validation
-- Dashboard payload validation
-
-### Deployment
-
-- Vercel
-
----
-
-## Validation
-
-The project includes validation across the major stages of the workflow.
-
-### Data Validation
-
-- Raw dataset inspection
-- Cleaning checks
-- Processed dataset validation
-
-### Analytical Validation
-
-- Python analysis outputs
-- SQL business analysis
-- Dashboard payload validation
-- KPI consistency checks
-
-### Frontend Validation
-
-- TypeScript type checking
-- Production build validation
-- Dashboard rendering checks
-- Executive insight rendering checks
-
-Automated tests are included for:
+Retention rates use existing customers only:
 
 ```text
+Existing customers = Churned + Stayed
+
+Churn rate = Churned / (Churned + Stayed)
+
+Retention rate = Stayed / (Churned + Stayed)
+```
+
+`Joined` customers remain in the dataset but are excluded from churn-rate denominators because they were new acquisitions during the observation period.
+
+Full definition: [`docs/churn_definition.md`](docs/churn_definition.md)
+
+## Analytical guardrails
+
+This project is descriptive and diagnostic, not predictive.
+
+- Risk tiers are rule-based, not machine-learning predictions.
+- Segment findings show associations, not proven causes.
+- Customers can appear in multiple overlapping segments.
+- Churn reasons are self-reported and describe stated reasons, not verified causes.
+- Offer E is strongly confounded by contract type, tenure, and internet service.
+- Negative monthly charges are flagged and preserved rather than silently corrected.
+- Small-city rates require sample-size awareness.
+- The dataset is a Q2 2022 snapshot and does not provide a time-series churn trend.
+- Hypothetical value scenarios are illustrations, not forecasts or causal estimates.
+
+See [`docs/dataset_audit.md`](docs/dataset_audit.md) and [`analysis/sql_business_findings.md`](analysis/sql_business_findings.md).
+
+## Repository structure
+
+```text
+analysis/
+├── data_cleaning.py
+├── exploratory_analysis.py
+├── dashboard_payload.py
+├── business_insights.md
+├── sql_business_findings.md
+└── outputs/
+
+data/
+├── raw/
+└── processed/
+
+docs/
+├── churn_definition.md
+└── dataset_audit.md
+
+frontend/
+├── src/
+├── package.json
+└── vite.config.ts
+
+sql/
+├── 01_kpi_overview.sql
+├── 02_churn_by_contract.sql
+├── 03_churn_by_tenure.sql
+├── 04_churn_by_internet.sql
+├── 05_churn_by_offer.sql
+├── 06_churn_by_demographics.sql
+├── 07_churn_by_billing.sql
+├── 08_churn_reasons.sql
+├── 09_high_risk_segments.sql
+├── 10_customer_risk_ranking.sql
+├── 11_business_impact.sql
+└── README.md
+
 tests/
 ├── test_dashboard_payload.py
 └── test_data_cleaning.py
 ```
 
----
+## Run the dashboard locally
 
-## Repository Structure
-
-```text
-customer-retention-intelligence/
-│
-├── analysis/
-│   ├── data_cleaning.py
-│   ├── exploratory_analysis.py
-│   ├── dashboard_payload.py
-│   ├── business_insights.md
-│   ├── sql_business_findings.md
-│   └── outputs/
-│
-├── data/
-│   ├── raw/
-│   └── processed/
-│
-├── docs/
-│   ├── churn_definition.md
-│   └── dataset_audit.md
-│
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── hooks/
-│   │   ├── lib/
-│   │   └── types/
-│   ├── package.json
-│   └── vite.config.ts
-│
-├── sql/
-│   ├── 01_kpi_overview.sql
-│   ├── 02_churn_by_contract.sql
-│   ├── 03_churn_by_tenure.sql
-│   ├── 04_churn_by_internet.sql
-│   ├── 05_churn_by_offer.sql
-│   ├── 06_churn_by_demographics.sql
-│   ├── 07_churn_by_billing.sql
-│   ├── 08_churn_reasons.sql
-│   ├── 09_high_risk_segments.sql
-│   ├── 10_customer_risk_ranking.sql
-│   ├── 11_business_impact.sql
-│   └── README.md
-│
-└── tests/
-    ├── test_dashboard_payload.py
-    └── test_data_cleaning.py
+```bash
+cd frontend
+npm install
+npm run dev
 ```
 
----
+Open [http://localhost:5173](http://localhost:5173).
 
-## Key Takeaways
+Run frontend validation:
 
-The project demonstrates an end-to-end approach to customer retention analytics:
+```bash
+npm run lint
+npm run build
+```
 
-**1. Start with clean and validated data**
+## Reproduce the analysis
 
-Reliable business insights depend on reliable analytical inputs.
+Install the Python dependencies used by the analysis scripts, then run:
 
-**2. Combine Python and SQL**
+```bash
+python analysis/data_cleaning.py
+python analysis/exploratory_analysis.py
+python analysis/dashboard_payload.py
+```
 
-Python supports exploratory analysis and data preparation, while SQL provides structured and reproducible business analysis.
+Run the automated tests:
 
-**3. Move beyond aggregate churn**
+```bash
+pytest
+```
 
-Overall churn is only the starting point. Segment-level analysis provides a more useful view of where risk is concentrated.
+Run a SQL query:
 
-**4. Connect analysis to action**
+```bash
+sqlite3 sql/customer_churn.db < sql/01_kpi_overview.sql
+```
 
-Risk segmentation and customer prioritization turn descriptive analytics into a more practical retention workflow.
+## Project purpose
 
-**5. Build for decision-making**
+This project demonstrates how to move from customer-level records to practical retention intelligence:
 
-The dashboard is designed to help an executive or retention team quickly understand:
+- Start with a clean and auditable dataset
+- Define business metrics precisely
+- Validate findings through both Python and SQL
+- Look beyond the overall churn percentage
+- Find concentrated customer-risk patterns
+- Connect analysis to business questions
+- Present evidence in an executive-friendly dashboard
 
-- What is happening?
-- Where is the problem?
-- Which customers or segments deserve attention?
-- What should be investigated next?
-
----
-
-## Future Improvements
-
-Potential extensions include:
-
-- Predictive churn modeling
-- Customer churn probability scoring
-- Customer lifetime value analysis
-- Cohort analysis
-- Retention campaign simulation
-- Retention ROI modeling
-- Automated ETL scheduling
-- Automated dashboard data refresh
-- Database-backed dashboard architecture
-- Automated reporting exports
-- Data quality monitoring
-- Model monitoring
-- Containerized full-stack deployment
-
----
-
-## Live Dashboard
-
-Explore the interactive portfolio deployment:
-
-**[Open Customer Retention Intelligence Dashboard →](https://customer-retention-intelligence.vercel.app/)**
-
----
-
-## License
-
-This project was developed for portfolio and educational purposes.
+Built as a portfolio and educational project by [Michael Alexander](https://github.com/LexterMorgan).
