@@ -177,6 +177,32 @@ function expectFailure(
   assert.equal(result.gatewayModel, null)
 }
 
+/**
+ * `AbortSignal.timeout` uses an unref'd timer. While a test awaits only that
+ * timer, Node 22 can drain the event loop and cancel the pending test. Keep a
+ * referenced, finite watchdog in the race so the event loop stays alive and a
+ * stuck operation fails instead of hanging.
+ */
+const WATCHDOG_TIMEOUT_MS = 2_000
+
+async function withReferencedWatchdog<T>(
+  operation: () => Promise<T>
+): Promise<T> {
+  let timer: ReturnType<typeof setTimeout> | undefined
+  const watchdog = new Promise<never>((_resolve, reject) => {
+    timer = setTimeout(() => {
+      reject(new Error("test watchdog expired before the operation settled"))
+    }, WATCHDOG_TIMEOUT_MS)
+  })
+  try {
+    return await Promise.race([operation(), watchdog])
+  } finally {
+    if (timer !== undefined) {
+      clearTimeout(timer)
+    }
+  }
+}
+
 /** Give Node time to emit a queued unhandled-rejection event. */
 async function settleRejections(): Promise<void> {
   await new Promise<void>((resolve) => {
@@ -210,9 +236,10 @@ test(
   { timeout: 2_000 },
   async () => {
     const probe = newProbe()
-    const { result, elapsedMs } = await timedCall(
-      new Response(stalledBody(probe), { status: 200 }),
-      { timeoutMs: STALL_TIMEOUT_MS }
+    const { result, elapsedMs } = await withReferencedWatchdog(() =>
+      timedCall(new Response(stalledBody(probe), { status: 200 }), {
+        timeoutMs: STALL_TIMEOUT_MS,
+      })
     )
 
     expectFailure(result, "timeout", 200)
@@ -337,9 +364,10 @@ test(
   { timeout: 2_000 },
   async () => {
     const timeoutProbe = newProbe()
-    const timeout = await callTransport(
-      new Response(stalledBody(timeoutProbe), { status: 200 }),
-      { timeoutMs: STALL_TIMEOUT_MS }
+    const timeout = await withReferencedWatchdog(() =>
+      callTransport(new Response(stalledBody(timeoutProbe), { status: 200 }), {
+        timeoutMs: STALL_TIMEOUT_MS,
+      })
     )
     expectFailure(timeout, "timeout", 200)
 
@@ -368,9 +396,11 @@ test(
     const tracker = trackUnhandledRejections()
     try {
       const timeoutProbe = newProbe()
-      const timeout = await callTransport(
-        new Response(stalledBody(timeoutProbe), { status: 200 }),
-        { timeoutMs: STALL_TIMEOUT_MS }
+      const timeout = await withReferencedWatchdog(() =>
+        callTransport(
+          new Response(stalledBody(timeoutProbe), { status: 200 }),
+          { timeoutMs: STALL_TIMEOUT_MS }
+        )
       )
       const oversizedProbe = newProbe()
       const oversized = await callTransport(

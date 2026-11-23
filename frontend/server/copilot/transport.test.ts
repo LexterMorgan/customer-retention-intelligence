@@ -396,16 +396,43 @@ test("stops reading an oversized streamed body", async () => {
   assert.equal(calls.length, 1)
 })
 
+/**
+ * `AbortSignal.timeout` uses an unref'd timer. Keep the event loop referenced
+ * with a finite watchdog while a test awaits the abort, and reject instead of
+ * hanging if the operation never settles.
+ */
+const WATCHDOG_TIMEOUT_MS = 2_000
+
+async function withReferencedWatchdog<T>(
+  operation: () => Promise<T>
+): Promise<T> {
+  let timer: ReturnType<typeof setTimeout> | undefined
+  const watchdog = new Promise<never>((_resolve, reject) => {
+    timer = setTimeout(() => {
+      reject(new Error("test watchdog expired before the operation settled"))
+    }, WATCHDOG_TIMEOUT_MS)
+  })
+  try {
+    return await Promise.race([operation(), watchdog])
+  } finally {
+    if (timer !== undefined) {
+      clearTimeout(timer)
+    }
+  }
+}
+
 test("times out a stalled body when the abort signal fires", async () => {
-  const { result } = await callWith(
-    (call) => {
-      const signal = call.init?.signal
-      if (signal === undefined || signal === null) {
-        throw new Error("expected the transport to pass an abort signal")
-      }
-      return new Response(stalledBody(signal), { status: 200 })
-    },
-    { timeoutMs: 40 }
+  const { result } = await withReferencedWatchdog(() =>
+    callWith(
+      (call) => {
+        const signal = call.init?.signal
+        if (signal === undefined || signal === null) {
+          throw new Error("expected the transport to pass an abort signal")
+        }
+        return new Response(stalledBody(signal), { status: 200 })
+      },
+      { timeoutMs: 40 }
+    )
   )
 
   expectFailure(result, "timeout", 200)
