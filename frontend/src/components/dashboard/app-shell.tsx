@@ -1,6 +1,7 @@
 import { useState } from "react"
 
 import { AnalyticalViews } from "@/components/dashboard/analytical-views"
+import { CopilotPanel } from "@/components/dashboard/copilot-panel"
 import { DashboardHeader } from "@/components/dashboard/dashboard-header"
 import {
   DashboardEmptyState,
@@ -94,6 +95,7 @@ function DashboardMain() {
                   <KpiGrid payload={payload} />
                   <ExecutiveInsights payload={payload} />
                 </div>
+                {import.meta.env.DEV ? <CopilotPanel /> : null}
                 <AnalyticalViews payload={payload} />
               </>
             ) : null}

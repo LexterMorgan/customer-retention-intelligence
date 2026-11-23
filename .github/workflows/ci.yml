@@ -33,4 +33,8 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run typecheck
+      - run: npm run typecheck:evidence
+      - run: npm run test:evidence
+      - run: npm run typecheck:copilot
+      - run: npm run test:copilot
       - run: npm run build

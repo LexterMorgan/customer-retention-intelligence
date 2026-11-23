@@ -7,9 +7,14 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "test:evidence": "node --test server/evidence/*.test.ts server/copilot/*.test.ts",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "typecheck": "tsc --noEmit",
-    "preview": "vite preview"
+    "typecheck:evidence": "tsc -p tsconfig.evidence.json",
+    "preview": "vite preview",
+    "typecheck:copilot": "tsc -p tsconfig.copilot.json",
+    "test:copilot": "node --test src/lib/ask-copilot.test.ts src/lib/copilot-controller.test.ts src/lib/copilot-view.test.ts",
+    "eval:copilot": "node server/copilot/evaluation/cli.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

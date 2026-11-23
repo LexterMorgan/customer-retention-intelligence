@@ -240,6 +240,39 @@ npm run lint
 npm run build
 ```
 
+Run the evidence-layer checks (no model calls):
+
+```bash
+npm run typecheck:evidence
+npm run test:evidence
+```
+
+Manual 9router route-compatibility probe (local only, never run in CI; requires the local 9router gateway at `localhost:20128` and `TRENDORA_AI_API_KEY` in the environment):
+
+```bash
+node server/evidence/probe-route.ts
+```
+
+Retention copilot (local only: CLI plus a development-only dashboard panel; server-side credential only). It sends exactly one request to the local 9router route, validates the model's structured evidence request, resolves it against the fixed aggregate payload, and prints a deterministic cited answer:
+
+```bash
+export RETENTION_COPILOT_API_KEY="<your 9router bearer token>"
+node server/copilot/cli.ts "What is the overall churn rate?"
+```
+
+Use the project-specific environment variable above; never a `VITE_*` variable, since the key is server-side. The CLI does not read Trendora files, print credentials, or retry.
+
+The dashboard also exposes a development-only copilot panel backed by `POST /api/copilot` on the Vite dev server (not present in the production build or preview). Export the same server-side key before starting the dev server:
+
+```bash
+export RETENTION_COPILOT_API_KEY="<your 9router bearer token>"
+npm run dev
+```
+
+The panel asks the existing local copilot service, shows deterministic answers with evidence citations, and is intentionally unavailable outside `npm run dev`.
+
+Architecture, supported questions, local setup, and evaluation are documented in [`docs/copilot.md`](docs/copilot.md). A historical 36-case run recorded **33/36 strict passes (91.7%)** under the original evaluator; the evaluator has since gained stronger semantic checks and interruption recovery, and that run has not been rescored. Per-case failures and limitations are in the docs and the sanitized artifact [`docs/copilot-evaluation-live-2026-11-22.json`](docs/copilot-evaluation-live-2026-11-22.json). Run the offline evaluation validation with `npm run eval:copilot` (no gateway or credential needed); live evaluation is manual only.
+
 ## Reproduce the analysis
 
 Install the Python dependencies used by the analysis scripts, then run:

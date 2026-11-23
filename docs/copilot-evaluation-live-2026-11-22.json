@@ -1,0 +1,1010 @@
+{
+  "kind": "live-evaluation-artifact",
+  "dataset": {
+    "version": "1.0.0",
+    "sha256": "33354d7e43fe89f31c006f1d7af1084ef615a6b3997763e268999a5a7a67f5e3",
+    "totalCases": 36
+  },
+  "aggregatePayloadSha256": "32edc9a6c7bf4952a59e5e129fd5852c56ffe4b3a9dbca49ced2ba160d63d289",
+  "runTimestampUtc": "2026-11-22T13:35:45.438Z",
+  "git": {
+    "revision": "95c970a115435fa6e4d15965491812a4f098a5eb",
+    "dirty": true
+  },
+  "runtimeSource": {
+    "algorithm": "sha256",
+    "files": {
+      "server/copilot/cli.ts": "5834ec4bc47c810cc1b8ec676d6b61b3f8f36cf653361706c18d0b13e8ec4e32",
+      "server/copilot/dev-route-plugin.ts": "63c71a593ad7e1bf00ae1b7b2a9ead642bee183fd1146f1535a3e9390054c540",
+      "server/copilot/dev-route.ts": "64403612b2d36c4ff64dbe8ff410d3ddc625b094650ced7303249cd4f280abed",
+      "server/copilot/evaluation/artifact.ts": "7b604038424be62efeec4366e60f91c097555a1c5d96219fdf653889a7288c4b",
+      "server/copilot/evaluation/cli.ts": "4d8adc7711cf110d206433f466d9534e9dfeba21506814743656f798004f4bc3",
+      "server/copilot/evaluation/dataset.ts": "e5bad8e1501224ff05ab89acc5619bc20814b49cf0b48a0d77425ac38d72ce4f",
+      "server/copilot/evaluation/runner.ts": "3f95814118badb6a315608f952f90071f42bb3cd16699d17cfe5867cec6b38d6",
+      "server/copilot/evaluation/scoring.ts": "87a5d2650d2e1bae80691584261e0e1fb36a1a8a5c05f271dcdfbaa3e85c97e8",
+      "server/copilot/evaluation/types.ts": "011d493468e67b3e60fc0c9a42371cc65b22742cd1ae569502fd24f144bd5c88",
+      "server/copilot/evaluation/validation.ts": "021556bbf933752825887cc6a1f68fae56fa6ad7c0bd8e5576165dd5970e1040",
+      "server/copilot/format.ts": "34257726570c561d92edab644c88f15164517c5fef44f6175ede9d78a17f498b",
+      "server/copilot/index.ts": "9fa9968677ea89be7cf4cc6dbf5e78ea1b5b1730267228aa2e1cda65a44848b2",
+      "server/copilot/prompt.ts": "9aa4dc2a796097042976422ea9c128d8d50dec4b660056a76dd321d6dc4a49fc",
+      "server/copilot/question.ts": "d79b6ad42ac8670e80d778e4b42bc905f8edcfe1a090ae025a66325ca1e23c2a",
+      "server/copilot/service.ts": "99f5d7a1981bae605d36068048cd06afde7fcb57504433775960524f0099d9c5",
+      "server/copilot/transport.ts": "8bae00fedaaa21171513d95a7fac5ab768245dbd618506812428fefe8c72ebb0",
+      "server/copilot/types.ts": "2a4d914d81474173148bc8225a4d4abbec1ff77b017210377a8f7f9f3934cce8",
+      "server/evidence/definitions.ts": "d4b4cb6a6852245cf11dbc1184f644449a5d3300b59b826c20fb1b0ebb7771d2",
+      "server/evidence/guards.ts": "6e9a6a03ef03a229ac3cf5f594da473d68651c1e0ed06c97c1b98f7acbd1d6d3",
+      "server/evidence/index.ts": "9691cb5ef4c41a0a74d625b12aebe6626db17e508f41cf0dc2dc39822687a95a",
+      "server/evidence/payload.ts": "784301bff2f294aacb2722438705461c7437478f91c318e3adfe3f118360e9aa",
+      "server/evidence/probe-envelope.ts": "63eea7d16b3cd77fdab0e681f26970c1ad9ee9298e54840dfcac15fe075ddc66",
+      "server/evidence/probe-report.ts": "60c687eceba3bfb24e8dde8da6b8389559887164efd8591e144b6dba6b6fd48d",
+      "server/evidence/probe-route.ts": "09269fd4af79e57d0597e8ba9acc5f04e9540ab166b95d516d1e5db6b9331499",
+      "server/evidence/requests.ts": "934fdf6473f506bb17a160150f7aa70dcb4487fd21e5d2ab9e0b6cf818ad6b9b",
+      "server/evidence/resolver.ts": "3a60e417e2cc73e4335361d2946760e2943100f5fec5e09065c085fae02ffdef",
+      "server/evidence/types.ts": "60aef0501bfd0cfad73a2aaa85d37f94173a91b94eedde70ccd26037f61cac1c"
+    },
+    "combined": "1e8da4bef960a97fc6363358438613e211eb844996a7e10928b20d595adc689a"
+  },
+  "configuredRoute": "free-models",
+  "requestControls": {
+    "endpoint": "http://localhost:20128/v1/chat/completions",
+    "configuredRoute": "free-models",
+    "stream": false,
+    "responseFormat": "json_object",
+    "maxTokens": 4096,
+    "reasoning": {
+      "effort": "low",
+      "exclude": true
+    },
+    "timeoutMs": 90000,
+    "maxResponseBytes": 262144,
+    "retries": 0
+  },
+  "mode": "live",
+  "cases": [
+    {
+      "caseId": "sup-01",
+      "category": "supported_paraphrase",
+      "expectedDisposition": "answered",
+      "actualDisposition": "answered",
+      "request": {
+        "operation": "get_kpi",
+        "metric": "churn_rate_pct"
+      },
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 6308,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3157,
+        "completion_tokens": 131,
+        "total_tokens": 3288
+      },
+      "answerText": "Churn Rate for the Q2 2022 full snapshot: 28.37%. Population/denominator: Existing customers = Churned + Stayed; Joined customers are excluded from rate denominators.",
+      "citations": [
+        "payload:kpis.churn_rate_pct"
+      ],
+      "artifactSha256": "32edc9a6c7bf4952a59e5e129fd5852c56ffe4b3a9dbca49ced2ba160d63d289",
+      "detail": "Matched an acceptable request and verified the deterministic evidence and answer text."
+    },
+    {
+      "caseId": "sup-02",
+      "category": "supported_paraphrase",
+      "expectedDisposition": "answered",
+      "actualDisposition": "answered",
+      "request": {
+        "operation": "get_kpi",
+        "metric": "retention_rate_pct"
+      },
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 2453,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3158,
+        "completion_tokens": 194,
+        "total_tokens": 3352
+      },
+      "answerText": "Retention Rate for the Q2 2022 full snapshot: 71.63%. Population/denominator: Existing customers = Churned + Stayed; Joined customers are excluded from rate denominators.",
+      "citations": [
+        "payload:kpis.retention_rate_pct"
+      ],
+      "artifactSha256": "32edc9a6c7bf4952a59e5e129fd5852c56ffe4b3a9dbca49ced2ba160d63d289",
+      "detail": "Matched an acceptable request and verified the deterministic evidence and answer text."
+    },
+    {
+      "caseId": "sup-03",
+      "category": "supported_paraphrase",
+      "expectedDisposition": "answered",
+      "actualDisposition": "answered",
+      "request": {
+        "operation": "get_kpi",
+        "metric": "existing_customers"
+      },
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 1858,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3159,
+        "completion_tokens": 119,
+        "total_tokens": 3278
+      },
+      "answerText": "Existing Customers for the Q2 2022 full snapshot: 6,589. Population/denominator: Existing customers = Churned + Stayed; Joined customers are excluded from rate denominators.",
+      "citations": [
+        "payload:kpis.existing_customers"
+      ],
+      "artifactSha256": "32edc9a6c7bf4952a59e5e129fd5852c56ffe4b3a9dbca49ced2ba160d63d289",
+      "detail": "Matched an acceptable request and verified the deterministic evidence and answer text."
+    },
+    {
+      "caseId": "sup-04",
+      "category": "supported_paraphrase",
+      "expectedDisposition": "answered",
+      "actualDisposition": "unsupported",
+      "request": null,
+      "classification": "incorrect_refusal",
+      "passed": false,
+      "elapsedMs": 3313,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3159,
+        "completion_tokens": 233,
+        "total_tokens": 3392
+      },
+      "answerText": null,
+      "citations": [],
+      "artifactSha256": null,
+      "detail": "The question was refused even though the fixed payload answers it."
+    },
+    {
+      "caseId": "sup-05",
+      "category": "supported_paraphrase",
+      "expectedDisposition": "answered",
+      "actualDisposition": "answered",
+      "request": {
+        "operation": "get_kpi",
+        "metric": "total_customers"
+      },
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 1587,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3161,
+        "completion_tokens": 102,
+        "total_tokens": 3263
+      },
+      "answerText": "Total Customers for the Q2 2022 full snapshot: 7,043. Population/denominator: All customers in the cleaned Q2 2022 snapshot, including Joined customers.",
+      "citations": [
+        "payload:kpis.total_customers"
+      ],
+      "artifactSha256": "32edc9a6c7bf4952a59e5e129fd5852c56ffe4b3a9dbca49ced2ba160d63d289",
+      "detail": "Matched an acceptable request and verified the deterministic evidence and answer text."
+    },
+    {
+      "caseId": "sup-06",
+      "category": "supported_paraphrase",
+      "expectedDisposition": "answered",
+      "actualDisposition": "answered",
+      "request": {
+        "operation": "get_contract_metrics",
+        "contract": "Two Year"
+      },
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 5432,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3160,
+        "completion_tokens": 291,
+        "total_tokens": 3451
+      },
+      "answerText": "Two Year contract in the Q2 2022 full snapshot: Existing Customers 1,861; Churned Customers 48; Retained Customers 1,813; Churn Rate 2.58%; Share of All Churn 2.57%. Rate denominator: Existing customers = Churned + Stayed; Joined customers are excluded from rate denominators.",
+      "citations": [
+        "payload:by_contract[category=\"Two Year\"].existing_customers",
+        "payload:by_contract[category=\"Two Year\"].churned_customers",
+        "payload:by_contract[category=\"Two Year\"].retained_customers",
+        "payload:by_contract[category=\"Two Year\"].churn_rate_pct",
+        "payload:by_contract[category=\"Two Year\"].pct_of_total_churn"
+      ],
+      "artifactSha256": "32edc9a6c7bf4952a59e5e129fd5852c56ffe4b3a9dbca49ced2ba160d63d289",
+      "detail": "Matched an acceptable request and verified the deterministic evidence and answer text."
+    },
+    {
+      "caseId": "sup-07",
+      "category": "supported_paraphrase",
+      "expectedDisposition": "answered",
+      "actualDisposition": "answered",
+      "request": {
+        "operation": "compare_contracts",
+        "contracts": [
+          "Month-to-Month",
+          "One Year"
+        ]
+      },
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 4277,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3164,
+        "completion_tokens": 387,
+        "total_tokens": 3551
+      },
+      "answerText": "Month-to-Month contract in the Q2 2022 full snapshot: Existing Customers 3,202; Churned Customers 1,655; Retained Customers 1,547; Churn Rate 51.69%; Share of All Churn 88.55%. Rate denominator: Existing customers = Churned + Stayed; Joined customers are excluded from rate denominators.\nOne Year contract in the Q2 2022 full snapshot: Existing Customers 1,526; Churned Customers 166; Retained Customers 1,360; Churn Rate 10.88%; Share of All Churn 8.88%. Rate denominator: Existing customers = Churned + Stayed; Joined customers are excluded from rate denominators.",
+      "citations": [
+        "payload:by_contract[category=\"Month-to-Month\"].existing_customers",
+        "payload:by_contract[category=\"Month-to-Month\"].churned_customers",
+        "payload:by_contract[category=\"Month-to-Month\"].retained_customers",
+        "payload:by_contract[category=\"Month-to-Month\"].churn_rate_pct",
+        "payload:by_contract[category=\"Month-to-Month\"].pct_of_total_churn",
+        "payload:by_contract[category=\"One Year\"].existing_customers",
+        "payload:by_contract[category=\"One Year\"].churned_customers",
+        "payload:by_contract[category=\"One Year\"].retained_customers",
+        "payload:by_contract[category=\"One Year\"].churn_rate_pct",
+        "payload:by_contract[category=\"One Year\"].pct_of_total_churn"
+      ],
+      "artifactSha256": "32edc9a6c7bf4952a59e5e129fd5852c56ffe4b3a9dbca49ced2ba160d63d289",
+      "detail": "Matched an acceptable request and verified the deterministic evidence and answer text."
+    },
+    {
+      "caseId": "sup-08",
+      "category": "supported_paraphrase",
+      "expectedDisposition": "answered",
+      "actualDisposition": "answered",
+      "request": {
+        "operation": "highest_churn_contract"
+      },
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 6138,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3161,
+        "completion_tokens": 347,
+        "total_tokens": 3508
+      },
+      "answerText": "Highest churn rate in the Q2 2022 full snapshot: Month-to-Month 51.69%. Rate denominator: Existing customers = Churned + Stayed; Joined customers are excluded from rate denominators.",
+      "citations": [
+        "payload:by_contract[category=\"Month-to-Month\"].churn_rate_pct"
+      ],
+      "artifactSha256": "32edc9a6c7bf4952a59e5e129fd5852c56ffe4b3a9dbca49ced2ba160d63d289",
+      "detail": "Matched an acceptable request and verified the deterministic evidence and answer text."
+    },
+    {
+      "caseId": "sup-09",
+      "category": "supported_paraphrase",
+      "expectedDisposition": "answered",
+      "actualDisposition": "answered",
+      "request": {
+        "operation": "get_definition",
+        "definition": "churn_rate"
+      },
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 2026,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3158,
+        "completion_tokens": 138,
+        "total_tokens": 3296
+      },
+      "answerText": "Churn Rate: Churn Rate = Churned / (Churned + Stayed). Joined customers are excluded from the denominator. Source: repository document docs/churn_definition.md (Canonical Formulas → Churn Rate), versioned separately from the dashboard payload.",
+      "citations": [],
+      "artifactSha256": "32edc9a6c7bf4952a59e5e129fd5852c56ffe4b3a9dbca49ced2ba160d63d289",
+      "detail": "Matched an acceptable request and verified the deterministic evidence and answer text."
+    },
+    {
+      "caseId": "sup-10",
+      "category": "supported_paraphrase",
+      "expectedDisposition": "answered",
+      "actualDisposition": "answered",
+      "request": {
+        "operation": "get_definition",
+        "definition": "retention_rate"
+      },
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 2364,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3156,
+        "completion_tokens": 205,
+        "total_tokens": 3361
+      },
+      "answerText": "Retention Rate: Retention Rate = Stayed / (Churned + Stayed). Equivalently, Retention Rate = 1 - Churn Rate. Source: repository document docs/churn_definition.md (Canonical Formulas → Retention Rate), versioned separately from the dashboard payload.",
+      "citations": [],
+      "artifactSha256": "32edc9a6c7bf4952a59e5e129fd5852c56ffe4b3a9dbca49ced2ba160d63d289",
+      "detail": "Matched an acceptable request and verified the deterministic evidence and answer text."
+    },
+    {
+      "caseId": "sup-11",
+      "category": "supported_paraphrase",
+      "expectedDisposition": "answered",
+      "actualDisposition": "answered",
+      "request": {
+        "operation": "get_definition",
+        "definition": "existing_customers"
+      },
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 2870,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3157,
+        "completion_tokens": 288,
+        "total_tokens": 3445
+      },
+      "answerText": "Existing Customers: Existing customers = Churned + Stayed. Joined customers are kept in the dataset but excluded from churn and retention rate calculations. Source: repository document docs/churn_definition.md (Customer Status Values → Definitions), versioned separately from the dashboard payload.",
+      "citations": [],
+      "artifactSha256": "32edc9a6c7bf4952a59e5e129fd5852c56ffe4b3a9dbca49ced2ba160d63d289",
+      "detail": "Matched an acceptable request and verified the deterministic evidence and answer text."
+    },
+    {
+      "caseId": "sup-12",
+      "category": "supported_paraphrase",
+      "expectedDisposition": "answered",
+      "actualDisposition": "answered",
+      "request": {
+        "operation": "get_definition",
+        "definition": "mrvl"
+      },
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 2529,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3157,
+        "completion_tokens": 121,
+        "total_tokens": 3278
+      },
+      "answerText": "Monthly Recurring Value Lost (MRVL): SUM(Monthly Charge) WHERE Customer Status = 'Churned' Source: dashboard payload field mrvl.definition (artifact sha256 32edc9a6c7bf4952a59e5e129fd5852c56ffe4b3a9dbca49ced2ba160d63d289).",
+      "citations": [],
+      "artifactSha256": "32edc9a6c7bf4952a59e5e129fd5852c56ffe4b3a9dbca49ced2ba160d63d289",
+      "detail": "Matched an acceptable request and verified the deterministic evidence and answer text."
+    },
+    {
+      "caseId": "cmp-01",
+      "category": "comparison_ranking",
+      "expectedDisposition": "answered",
+      "actualDisposition": "answered",
+      "request": {
+        "operation": "compare_contracts",
+        "contracts": [
+          "One Year",
+          "Two Year"
+        ]
+      },
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 1840,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3158,
+        "completion_tokens": 152,
+        "total_tokens": 3310
+      },
+      "answerText": "One Year contract in the Q2 2022 full snapshot: Existing Customers 1,526; Churned Customers 166; Retained Customers 1,360; Churn Rate 10.88%; Share of All Churn 8.88%. Rate denominator: Existing customers = Churned + Stayed; Joined customers are excluded from rate denominators.\nTwo Year contract in the Q2 2022 full snapshot: Existing Customers 1,861; Churned Customers 48; Retained Customers 1,813; Churn Rate 2.58%; Share of All Churn 2.57%. Rate denominator: Existing customers = Churned + Stayed; Joined customers are excluded from rate denominators.",
+      "citations": [
+        "payload:by_contract[category=\"One Year\"].existing_customers",
+        "payload:by_contract[category=\"One Year\"].churned_customers",
+        "payload:by_contract[category=\"One Year\"].retained_customers",
+        "payload:by_contract[category=\"One Year\"].churn_rate_pct",
+        "payload:by_contract[category=\"One Year\"].pct_of_total_churn",
+        "payload:by_contract[category=\"Two Year\"].existing_customers",
+        "payload:by_contract[category=\"Two Year\"].churned_customers",
+        "payload:by_contract[category=\"Two Year\"].retained_customers",
+        "payload:by_contract[category=\"Two Year\"].churn_rate_pct",
+        "payload:by_contract[category=\"Two Year\"].pct_of_total_churn"
+      ],
+      "artifactSha256": "32edc9a6c7bf4952a59e5e129fd5852c56ffe4b3a9dbca49ced2ba160d63d289",
+      "detail": "Matched an acceptable request and verified the deterministic evidence and answer text."
+    },
+    {
+      "caseId": "cmp-02",
+      "category": "comparison_ranking",
+      "expectedDisposition": "answered",
+      "actualDisposition": "answered",
+      "request": {
+        "operation": "compare_contracts",
+        "contracts": [
+          "Two Year",
+          "One Year"
+        ]
+      },
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 2542,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3163,
+        "completion_tokens": 248,
+        "total_tokens": 3411
+      },
+      "answerText": "Two Year contract in the Q2 2022 full snapshot: Existing Customers 1,861; Churned Customers 48; Retained Customers 1,813; Churn Rate 2.58%; Share of All Churn 2.57%. Rate denominator: Existing customers = Churned + Stayed; Joined customers are excluded from rate denominators.\nOne Year contract in the Q2 2022 full snapshot: Existing Customers 1,526; Churned Customers 166; Retained Customers 1,360; Churn Rate 10.88%; Share of All Churn 8.88%. Rate denominator: Existing customers = Churned + Stayed; Joined customers are excluded from rate denominators.",
+      "citations": [
+        "payload:by_contract[category=\"Two Year\"].existing_customers",
+        "payload:by_contract[category=\"Two Year\"].churned_customers",
+        "payload:by_contract[category=\"Two Year\"].retained_customers",
+        "payload:by_contract[category=\"Two Year\"].churn_rate_pct",
+        "payload:by_contract[category=\"Two Year\"].pct_of_total_churn",
+        "payload:by_contract[category=\"One Year\"].existing_customers",
+        "payload:by_contract[category=\"One Year\"].churned_customers",
+        "payload:by_contract[category=\"One Year\"].retained_customers",
+        "payload:by_contract[category=\"One Year\"].churn_rate_pct",
+        "payload:by_contract[category=\"One Year\"].pct_of_total_churn"
+      ],
+      "artifactSha256": "32edc9a6c7bf4952a59e5e129fd5852c56ffe4b3a9dbca49ced2ba160d63d289",
+      "detail": "Matched an acceptable request and verified the deterministic evidence and answer text."
+    },
+    {
+      "caseId": "cmp-03",
+      "category": "comparison_ranking",
+      "expectedDisposition": "answered",
+      "actualDisposition": "answered",
+      "request": {
+        "operation": "compare_contracts",
+        "contracts": [
+          "Month-to-Month",
+          "Two Year"
+        ]
+      },
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 2695,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3162,
+        "completion_tokens": 238,
+        "total_tokens": 3400
+      },
+      "answerText": "Month-to-Month contract in the Q2 2022 full snapshot: Existing Customers 3,202; Churned Customers 1,655; Retained Customers 1,547; Churn Rate 51.69%; Share of All Churn 88.55%. Rate denominator: Existing customers = Churned + Stayed; Joined customers are excluded from rate denominators.\nTwo Year contract in the Q2 2022 full snapshot: Existing Customers 1,861; Churned Customers 48; Retained Customers 1,813; Churn Rate 2.58%; Share of All Churn 2.57%. Rate denominator: Existing customers = Churned + Stayed; Joined customers are excluded from rate denominators.",
+      "citations": [
+        "payload:by_contract[category=\"Month-to-Month\"].existing_customers",
+        "payload:by_contract[category=\"Month-to-Month\"].churned_customers",
+        "payload:by_contract[category=\"Month-to-Month\"].retained_customers",
+        "payload:by_contract[category=\"Month-to-Month\"].churn_rate_pct",
+        "payload:by_contract[category=\"Month-to-Month\"].pct_of_total_churn",
+        "payload:by_contract[category=\"Two Year\"].existing_customers",
+        "payload:by_contract[category=\"Two Year\"].churned_customers",
+        "payload:by_contract[category=\"Two Year\"].retained_customers",
+        "payload:by_contract[category=\"Two Year\"].churn_rate_pct",
+        "payload:by_contract[category=\"Two Year\"].pct_of_total_churn"
+      ],
+      "artifactSha256": "32edc9a6c7bf4952a59e5e129fd5852c56ffe4b3a9dbca49ced2ba160d63d289",
+      "detail": "Matched an acceptable request and verified the deterministic evidence and answer text."
+    },
+    {
+      "caseId": "cmp-04",
+      "category": "comparison_ranking",
+      "expectedDisposition": "answered",
+      "actualDisposition": "answered",
+      "request": {
+        "operation": "highest_churn_contract"
+      },
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 3125,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3159,
+        "completion_tokens": 156,
+        "total_tokens": 3315
+      },
+      "answerText": "Highest churn rate in the Q2 2022 full snapshot: Month-to-Month 51.69%. Rate denominator: Existing customers = Churned + Stayed; Joined customers are excluded from rate denominators.",
+      "citations": [
+        "payload:by_contract[category=\"Month-to-Month\"].churn_rate_pct"
+      ],
+      "artifactSha256": "32edc9a6c7bf4952a59e5e129fd5852c56ffe4b3a9dbca49ced2ba160d63d289",
+      "detail": "Matched an acceptable request and verified the deterministic evidence and answer text."
+    },
+    {
+      "caseId": "cmp-05",
+      "category": "comparison_ranking",
+      "expectedDisposition": "answered",
+      "actualDisposition": "answered",
+      "request": {
+        "operation": "compare_contracts",
+        "contracts": [
+          "One Year",
+          "Two Year"
+        ]
+      },
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 7416,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3164,
+        "completion_tokens": 664,
+        "total_tokens": 3828
+      },
+      "answerText": "One Year contract in the Q2 2022 full snapshot: Existing Customers 1,526; Churned Customers 166; Retained Customers 1,360; Churn Rate 10.88%; Share of All Churn 8.88%. Rate denominator: Existing customers = Churned + Stayed; Joined customers are excluded from rate denominators.\nTwo Year contract in the Q2 2022 full snapshot: Existing Customers 1,861; Churned Customers 48; Retained Customers 1,813; Churn Rate 2.58%; Share of All Churn 2.57%. Rate denominator: Existing customers = Churned + Stayed; Joined customers are excluded from rate denominators.",
+      "citations": [
+        "payload:by_contract[category=\"One Year\"].existing_customers",
+        "payload:by_contract[category=\"One Year\"].churned_customers",
+        "payload:by_contract[category=\"One Year\"].retained_customers",
+        "payload:by_contract[category=\"One Year\"].churn_rate_pct",
+        "payload:by_contract[category=\"One Year\"].pct_of_total_churn",
+        "payload:by_contract[category=\"Two Year\"].existing_customers",
+        "payload:by_contract[category=\"Two Year\"].churned_customers",
+        "payload:by_contract[category=\"Two Year\"].retained_customers",
+        "payload:by_contract[category=\"Two Year\"].churn_rate_pct",
+        "payload:by_contract[category=\"Two Year\"].pct_of_total_churn"
+      ],
+      "artifactSha256": "32edc9a6c7bf4952a59e5e129fd5852c56ffe4b3a9dbca49ced2ba160d63d289",
+      "detail": "Matched an acceptable request and verified the deterministic evidence and answer text."
+    },
+    {
+      "caseId": "cmp-06",
+      "category": "comparison_ranking",
+      "expectedDisposition": "unsupported",
+      "actualDisposition": "answered",
+      "request": {
+        "operation": "highest_churn_contract"
+      },
+      "classification": "unsupported_scope_acceptance",
+      "passed": false,
+      "elapsedMs": 2319,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3159,
+        "completion_tokens": 189,
+        "total_tokens": 3348
+      },
+      "answerText": "Highest churn rate in the Q2 2022 full snapshot: Month-to-Month 51.69%. Rate denominator: Existing customers = Churned + Stayed; Joined customers are excluded from rate denominators.",
+      "citations": [
+        "payload:by_contract[category=\"Month-to-Month\"].churn_rate_pct"
+      ],
+      "artifactSha256": "32edc9a6c7bf4952a59e5e129fd5852c56ffe4b3a9dbca49ced2ba160d63d289",
+      "detail": "An answered result was returned for a case that must be refused as unsupported scope."
+    },
+    {
+      "caseId": "uns-01",
+      "category": "unsupported_scope",
+      "expectedDisposition": "unsupported",
+      "actualDisposition": "unsupported",
+      "request": null,
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 3360,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3163,
+        "completion_tokens": 308,
+        "total_tokens": 3471
+      },
+      "answerText": null,
+      "citations": [],
+      "artifactSha256": null,
+      "detail": "Refused the question with the fixed unsupported_scope reason and no evidence."
+    },
+    {
+      "caseId": "uns-02",
+      "category": "unsupported_scope",
+      "expectedDisposition": "unsupported",
+      "actualDisposition": "unsupported",
+      "request": null,
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 3151,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3161,
+        "completion_tokens": 303,
+        "total_tokens": 3464
+      },
+      "answerText": null,
+      "citations": [],
+      "artifactSha256": null,
+      "detail": "Refused the question with the fixed unsupported_scope reason and no evidence."
+    },
+    {
+      "caseId": "uns-03",
+      "category": "unsupported_scope",
+      "expectedDisposition": "unsupported",
+      "actualDisposition": "unsupported",
+      "request": null,
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 4648,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3162,
+        "completion_tokens": 250,
+        "total_tokens": 3412
+      },
+      "answerText": null,
+      "citations": [],
+      "artifactSha256": null,
+      "detail": "Refused the question with the fixed unsupported_scope reason and no evidence."
+    },
+    {
+      "caseId": "uns-04",
+      "category": "unsupported_scope",
+      "expectedDisposition": "unsupported",
+      "actualDisposition": "unsupported",
+      "request": null,
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 2134,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3162,
+        "completion_tokens": 147,
+        "total_tokens": 3309
+      },
+      "answerText": null,
+      "citations": [],
+      "artifactSha256": null,
+      "detail": "Refused the question with the fixed unsupported_scope reason and no evidence."
+    },
+    {
+      "caseId": "uns-05",
+      "category": "unsupported_scope",
+      "expectedDisposition": "unsupported",
+      "actualDisposition": "unsupported",
+      "request": null,
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 2285,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3156,
+        "completion_tokens": 187,
+        "total_tokens": 3343
+      },
+      "answerText": null,
+      "citations": [],
+      "artifactSha256": null,
+      "detail": "Refused the question with the fixed unsupported_scope reason and no evidence."
+    },
+    {
+      "caseId": "uns-06",
+      "category": "unsupported_scope",
+      "expectedDisposition": "unsupported",
+      "actualDisposition": "unsupported",
+      "request": null,
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 2280,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3162,
+        "completion_tokens": 216,
+        "total_tokens": 3378
+      },
+      "answerText": null,
+      "citations": [],
+      "artifactSha256": null,
+      "detail": "Refused the question with the fixed unsupported_scope reason and no evidence."
+    },
+    {
+      "caseId": "amb-01",
+      "category": "ambiguous_compound",
+      "expectedDisposition": "unsupported",
+      "actualDisposition": "unsupported",
+      "request": null,
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 7295,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3165,
+        "completion_tokens": 561,
+        "total_tokens": 3726
+      },
+      "answerText": null,
+      "citations": [],
+      "artifactSha256": null,
+      "detail": "Refused the question with the fixed unsupported_scope reason and no evidence."
+    },
+    {
+      "caseId": "amb-02",
+      "category": "ambiguous_compound",
+      "expectedDisposition": "unsupported",
+      "actualDisposition": "unsupported",
+      "request": null,
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 10859,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3166,
+        "completion_tokens": 881,
+        "total_tokens": 4047
+      },
+      "answerText": null,
+      "citations": [],
+      "artifactSha256": null,
+      "detail": "Refused the question with the fixed unsupported_scope reason and no evidence."
+    },
+    {
+      "caseId": "amb-03",
+      "category": "ambiguous_compound",
+      "expectedDisposition": "unsupported",
+      "actualDisposition": "unsupported",
+      "request": null,
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 2625,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3155,
+        "completion_tokens": 224,
+        "total_tokens": 3379
+      },
+      "answerText": null,
+      "citations": [],
+      "artifactSha256": null,
+      "detail": "Refused the question with the fixed unsupported_scope reason and no evidence."
+    },
+    {
+      "caseId": "amb-04",
+      "category": "ambiguous_compound",
+      "expectedDisposition": "unsupported",
+      "actualDisposition": "unsupported",
+      "request": null,
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 2337,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3155,
+        "completion_tokens": 214,
+        "total_tokens": 3369
+      },
+      "answerText": null,
+      "citations": [],
+      "artifactSha256": null,
+      "detail": "Refused the question with the fixed unsupported_scope reason and no evidence."
+    },
+    {
+      "caseId": "amb-05",
+      "category": "ambiguous_compound",
+      "expectedDisposition": "unsupported",
+      "actualDisposition": "unsupported",
+      "request": null,
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 3294,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3163,
+        "completion_tokens": 213,
+        "total_tokens": 3376
+      },
+      "answerText": null,
+      "citations": [],
+      "artifactSha256": null,
+      "detail": "Refused the question with the fixed unsupported_scope reason and no evidence."
+    },
+    {
+      "caseId": "amb-06",
+      "category": "ambiguous_compound",
+      "expectedDisposition": "unsupported",
+      "actualDisposition": "answered",
+      "request": {
+        "operation": "compare_contracts",
+        "contracts": [
+          "Month-to-Month",
+          "One Year"
+        ]
+      },
+      "classification": "unsupported_scope_acceptance",
+      "passed": false,
+      "elapsedMs": 8880,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3169,
+        "completion_tokens": 257,
+        "total_tokens": 3426
+      },
+      "answerText": "Month-to-Month contract in the Q2 2022 full snapshot: Existing Customers 3,202; Churned Customers 1,655; Retained Customers 1,547; Churn Rate 51.69%; Share of All Churn 88.55%. Rate denominator: Existing customers = Churned + Stayed; Joined customers are excluded from rate denominators.\nOne Year contract in the Q2 2022 full snapshot: Existing Customers 1,526; Churned Customers 166; Retained Customers 1,360; Churn Rate 10.88%; Share of All Churn 8.88%. Rate denominator: Existing customers = Churned + Stayed; Joined customers are excluded from rate denominators.",
+      "citations": [
+        "payload:by_contract[category=\"Month-to-Month\"].existing_customers",
+        "payload:by_contract[category=\"Month-to-Month\"].churned_customers",
+        "payload:by_contract[category=\"Month-to-Month\"].retained_customers",
+        "payload:by_contract[category=\"Month-to-Month\"].churn_rate_pct",
+        "payload:by_contract[category=\"Month-to-Month\"].pct_of_total_churn",
+        "payload:by_contract[category=\"One Year\"].existing_customers",
+        "payload:by_contract[category=\"One Year\"].churned_customers",
+        "payload:by_contract[category=\"One Year\"].retained_customers",
+        "payload:by_contract[category=\"One Year\"].churn_rate_pct",
+        "payload:by_contract[category=\"One Year\"].pct_of_total_churn"
+      ],
+      "artifactSha256": "32edc9a6c7bf4952a59e5e129fd5852c56ffe4b3a9dbca49ced2ba160d63d289",
+      "detail": "An answered result was returned for a case that must be refused as unsupported scope."
+    },
+    {
+      "caseId": "adv-01",
+      "category": "adversarial",
+      "expectedDisposition": "unsupported",
+      "actualDisposition": "unsupported",
+      "request": null,
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 4984,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3163,
+        "completion_tokens": 303,
+        "total_tokens": 3466
+      },
+      "answerText": null,
+      "citations": [],
+      "artifactSha256": null,
+      "detail": "Refused the question with the fixed unsupported_scope reason and no evidence."
+    },
+    {
+      "caseId": "adv-02",
+      "category": "adversarial",
+      "expectedDisposition": "unsupported",
+      "actualDisposition": "unsupported",
+      "request": null,
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 3584,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3169,
+        "completion_tokens": 346,
+        "total_tokens": 3515
+      },
+      "answerText": null,
+      "citations": [],
+      "artifactSha256": null,
+      "detail": "Refused the question with the fixed unsupported_scope reason and no evidence."
+    },
+    {
+      "caseId": "adv-03",
+      "category": "adversarial",
+      "expectedDisposition": "unsupported",
+      "actualDisposition": "unsupported",
+      "request": null,
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 9383,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3165,
+        "completion_tokens": 441,
+        "total_tokens": 3606
+      },
+      "answerText": null,
+      "citations": [],
+      "artifactSha256": null,
+      "detail": "Refused the question with the fixed unsupported_scope reason and no evidence."
+    },
+    {
+      "caseId": "adv-04",
+      "category": "adversarial",
+      "expectedDisposition": "unsupported",
+      "actualDisposition": "unsupported",
+      "request": null,
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 3386,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3161,
+        "completion_tokens": 308,
+        "total_tokens": 3469
+      },
+      "answerText": null,
+      "citations": [],
+      "artifactSha256": null,
+      "detail": "Refused the question with the fixed unsupported_scope reason and no evidence."
+    },
+    {
+      "caseId": "adv-05",
+      "category": "adversarial",
+      "expectedDisposition": "unsupported",
+      "actualDisposition": "unsupported",
+      "request": null,
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 2302,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3161,
+        "completion_tokens": 180,
+        "total_tokens": 3341
+      },
+      "answerText": null,
+      "citations": [],
+      "artifactSha256": null,
+      "detail": "Refused the question with the fixed unsupported_scope reason and no evidence."
+    },
+    {
+      "caseId": "adv-06",
+      "category": "adversarial",
+      "expectedDisposition": "unsupported",
+      "actualDisposition": "unsupported",
+      "request": null,
+      "classification": "correct",
+      "passed": true,
+      "elapsedMs": 2412,
+      "gatewayModel": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "usage": {
+        "prompt_tokens": 3163,
+        "completion_tokens": 235,
+        "total_tokens": 3398
+      },
+      "answerText": null,
+      "citations": [],
+      "artifactSha256": null,
+      "detail": "Refused the question with the fixed unsupported_scope reason and no evidence."
+    }
+  ],
+  "summary": {
+    "mode": "live",
+    "planned": 36,
+    "attempted": 36,
+    "completed": 36,
+    "correct": 33,
+    "failed": 3,
+    "unattempted": 0,
+    "fullRun": true,
+    "stoppedReason": null,
+    "strictPassRate": 0.9166666666666666,
+    "strictPassRateDenominator": "planned",
+    "supportedAccuracy": 0.9411764705882353,
+    "supportedAttempted": 17,
+    "unsupportedRefusalRate": 0.8947368421052632,
+    "unsupportedAttempted": 19,
+    "byCategory": {
+      "supported_paraphrase": {
+        "planned": 12,
+        "attempted": 12,
+        "correct": 11
+      },
+      "comparison_ranking": {
+        "planned": 6,
+        "attempted": 6,
+        "correct": 5
+      },
+      "unsupported_scope": {
+        "planned": 6,
+        "attempted": 6,
+        "correct": 6
+      },
+      "ambiguous_compound": {
+        "planned": 6,
+        "attempted": 6,
+        "correct": 5
+      },
+      "adversarial": {
+        "planned": 6,
+        "attempted": 6,
+        "correct": 6
+      }
+    },
+    "invalidOutputCount": 0,
+    "operationalErrorCount": 0,
+    "latencyMs": {
+      "median": 2997.5,
+      "p95": 9383,
+      "sampleCount": 36,
+      "convention": "nearest-rank"
+    },
+    "tokens": {
+      "prompt": 113793,
+      "completion": 9777,
+      "total": 123570,
+      "usageCoverage": 1
+    },
+    "modelDistribution": {
+      "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free": 36
+    },
+    "configuredRoute": "free-models",
+    "passed": false,
+    "exitCode": 1
+  },
+  "limitations": [
+    "Single bounded live run of synthetic questions; not a production-quality or broad model-reliability evaluation.",
+    "Gateway-reported model identity may change upstream behind the configured free-models route.",
+    "Scores judge schema-valid interpretation and trusted-evidence rendering, not open-ended semantic understanding.",
+    "No monetary cost is inferred and the route is not asserted to be free."
+  ]
+}

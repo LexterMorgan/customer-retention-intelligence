@@ -4,6 +4,8 @@ import tailwindcss from "@tailwindcss/vite"
 import react from "@vitejs/plugin-react"
 import { defineConfig, type Plugin } from "vite"
 
+import { copilotDevRoutePlugin } from "./server/copilot/dev-route-plugin.ts"
+
 /**
  * Keep the frontend on the canonical Milestone 2 artifact without duplicating
  * analytics. Copies data/processed/dashboard_payload.json into public/data for
@@ -44,10 +46,20 @@ function syncDashboardPayload(): Plugin {
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss(), syncDashboardPayload()],
+  plugins: [
+    react(),
+    tailwindcss(),
+    syncDashboardPayload(),
+    copilotDevRoutePlugin(),
+  ],
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "./src"),
     },
+  },
+  server: {
+    // The copilot dev route only accepts loopback requests, so bind loopback
+    // explicitly instead of listening on every interface.
+    host: "127.0.0.1",
   },
 })
