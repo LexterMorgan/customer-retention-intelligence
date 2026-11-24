@@ -4,7 +4,6 @@ import {
   dashboardTableHeadClass,
   dashboardTableWrapClass,
 } from "@/components/dashboard/table-styles"
-import { Badge } from "@/components/ui/badge"
 import {
   Card,
   CardContent,
@@ -35,27 +34,21 @@ export function MrvlScenarioSection({
   return (
     <SectionCard
       id="mrvl-scenario"
-      title="MRVL & illustrative retention scenario"
-      description="Monthly recurring value lost and the static hypothetical retention scenario."
-      actions={
-        <Badge variant="outline">
-          {scenario.illustrative_only ? "Illustrative what-if" : "Scenario"}
-        </Badge>
-      }
-      footnote="Illustrative scenario only — not a forecast or causal estimate."
+      title="Value impact and retention scenario"
+      description="Monthly recurring value lost, then a static illustrative what-if. Not a forecast or causal estimate."
     >
       <div className="grid gap-3 md:grid-cols-2">
-        <Card size="sm" className="gap-0 py-0 shadow-none ring-border/60">
+        <Card size="sm" className="gap-0 rounded-lg border border-border/60 py-0 shadow-none ring-0">
           <CardHeader className="gap-1.5 px-4 pt-3.5 pb-2">
             <CardDescription className="dashboard-label normal-case tracking-normal">
               Monthly Recurring Value Lost
             </CardDescription>
-            <CardTitle className="dashboard-kpi-value text-destructive">
+            <p className="dashboard-kpi-value font-heading m-0 text-destructive">
               {formatCurrency(mrvl.mrvl)}
-            </CardTitle>
+            </p>
           </CardHeader>
           <CardContent className="gap-1 px-4 pt-0 pb-3.5 text-[11px] leading-relaxed text-muted-foreground">
-            <p>{mrvl.definition}</p>
+            <p>Monthly recurring value lost from churned customers.</p>
             <p>
               Churned: {formatInteger(mrvl.churned_customers)} · Avg charge:{" "}
               {formatCurrency(mrvl.avg_monthly_charge_churned)}
@@ -63,10 +56,7 @@ export function MrvlScenarioSection({
           </CardContent>
         </Card>
 
-        <Card
-          size="sm"
-          className="gap-0 py-0 shadow-none ring-destructive/20"
-        >
+        <Card size="sm" className="gap-0 rounded-lg border border-border/60 py-0 shadow-none ring-0">
           <CardHeader className="gap-1.5 px-4 pt-3.5 pb-2">
             <CardDescription className="dashboard-label normal-case tracking-normal">
               Scenario
@@ -96,7 +86,7 @@ export function MrvlScenarioSection({
                 Scenario output
               </TableHead>
               <TableHead className={`${dashboardTableHeadClass} text-right`}>
-                Validated value
+                Value
               </TableHead>
             </TableRow>
           </TableHeader>

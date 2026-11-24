@@ -35,16 +35,27 @@ export type KpiDefinition = {
  */
 export const PRIMARY_KPI_DEFINITIONS: readonly KpiDefinition[] = [
   {
-    id: "total_customers",
-    label: "Total Customers",
-    definition: "All customers in the cleaned snapshot.",
-    format: formatInteger,
-    tone: "neutral",
+    id: "churn_rate_pct",
+    label: "Churn Rate",
+    definition: "Churned customers as a share of existing customers.",
+    format: formatPercent,
+    tone: "risk",
+    footnote: () =>
+      "Denominator: existing customers. Joined customers are excluded.",
+  },
+  {
+    id: "retention_rate_pct",
+    label: "Retention Rate",
+    definition: "Retained customers as a share of existing customers.",
+    format: formatPercent,
+    tone: "positive",
+    footnote: () =>
+      "Denominator: existing customers. Joined customers are excluded.",
   },
   {
     id: "existing_customers",
     label: "Existing Customers",
-    definition: "Churned + Stayed (Joined excluded from rates).",
+    definition: "Customers who either churned or stayed.",
     format: formatInteger,
     tone: "neutral",
     footnote: (payload) =>
@@ -53,35 +64,28 @@ export const PRIMARY_KPI_DEFINITIONS: readonly KpiDefinition[] = [
   {
     id: "churned_customers",
     label: "Churned Customers",
-    definition: "Customer Status = Churned.",
+    definition: "Customers whose status is churned.",
     format: formatInteger,
     tone: "risk",
   },
   {
     id: "retained_customers",
     label: "Retained Customers",
-    definition: "Customer Status = Stayed.",
+    definition: "Customers whose status is stayed.",
     format: formatInteger,
     tone: "positive",
   },
   {
-    id: "churn_rate_pct",
-    label: "Churn Rate",
-    definition: "Churned / Existing Customers.",
-    format: formatPercent,
-    tone: "risk",
-  },
-  {
-    id: "retention_rate_pct",
-    label: "Retention Rate",
-    definition: "Retained / Existing Customers.",
-    format: formatPercent,
-    tone: "positive",
+    id: "total_customers",
+    label: "Total Customers",
+    definition: "All customers in the Q2 2022 snapshot.",
+    format: formatInteger,
+    tone: "neutral",
   },
   {
     id: "mrvl",
     label: "Monthly Recurring Value Lost",
-    definition: "SUM(Monthly Charge) WHERE Churned.",
+    definition: "Monthly recurring value lost from churned customers.",
     format: formatCurrency,
     tone: "risk",
     footnote: (payload) =>

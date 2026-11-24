@@ -51,10 +51,13 @@ export function BillingSection({ billing }: BillingSectionProps) {
       id="billing-breakdown"
       title="Billing breakdown"
       description="Payment method, charge band, and paperless billing associations."
-      footnote="Avg monthly charge is payload context only — not recomputed in the browser."
+      footnote="Average monthly charge is context from the payload; it is not recalculated here."
     >
       <Tabs defaultValue="payment_method" className="gap-3">
-        <TabsList variant="line" className="w-full justify-start gap-1">
+        <TabsList
+          variant="line"
+          className="w-full justify-start gap-1 overflow-x-auto"
+        >
           {TABS.map((item) => (
             <TabsTrigger key={item.value} value={item.value}>
               {item.label}

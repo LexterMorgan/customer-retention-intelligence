@@ -3,6 +3,7 @@ import { BreakdownSection } from "@/components/dashboard/breakdown-section"
 import { ChurnReasonsSection } from "@/components/dashboard/churn-reasons-section"
 import { ContractTenureSection } from "@/components/dashboard/contract-tenure-section"
 import { DemographicsSection } from "@/components/dashboard/demographics-section"
+import { ExecutiveInsights } from "@/components/dashboard/executive-insights"
 import { MrvlScenarioSection } from "@/components/dashboard/mrvl-scenario-section"
 import { RiskTiersSection } from "@/components/dashboard/risk-tiers-section"
 import { SegmentsSection } from "@/components/dashboard/segments-section"
@@ -39,8 +40,8 @@ export function AnalyticalViews({ payload }: AnalyticalViewsProps) {
         className="scroll-mt-6 space-y-3.5"
       >
         <SectionIntro
-          title="Evidence & breakdowns"
-          subtitle="Supporting detail behind the executive insights. KPI cards remain the unfiltered portfolio baseline."
+          title="Churn breakdowns"
+          subtitle="Churn rate by contract, internet type, and tenure. Headline KPIs stay full-dataset."
         />
 
         <div className="grid gap-3.5 xl:grid-cols-2">
@@ -72,6 +73,8 @@ export function AnalyticalViews({ payload }: AnalyticalViewsProps) {
         />
       </section>
 
+      <ExecutiveInsights payload={payload} />
+
       <section
         id="drivers"
         aria-label="Churn drivers"
@@ -79,7 +82,7 @@ export function AnalyticalViews({ payload }: AnalyticalViewsProps) {
       >
         <SectionIntro
           title="Drivers & concentration"
-          subtitle="Offer, billing, demographics, stated exit reasons, and Contract × Tenure concentration."
+          subtitle="Offer, billing, demographics, self-reported exit themes, and Contract × Tenure concentration."
         />
 
         <BreakdownSection
@@ -111,8 +114,8 @@ export function AnalyticalViews({ payload }: AnalyticalViewsProps) {
         className="scroll-mt-6 space-y-3.5"
       >
         <SectionIntro
-          title="Risk concentration & financial impact"
-          subtitle="Descriptive risk tiers, overlapping segments, MRVL, and the illustrative retention what-if."
+          title="Risk & segments"
+          subtitle="Rule-based risk tiers, overlapping descriptive segments, then value impact."
         />
 
         <RiskTiersSection rows={payload.risk_tiers} />

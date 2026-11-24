@@ -7,7 +7,6 @@ import {
   dashboardTableHeadClass,
   dashboardTableWrapClass,
 } from "@/components/dashboard/table-styles"
-import { Badge } from "@/components/ui/badge"
 import {
   Table,
   TableBody,
@@ -42,9 +41,7 @@ export function SegmentsSection({ rows }: SegmentsSectionProps) {
     <SectionCard
       id="segments"
       title="Priority segments"
-      description="Overlapping descriptive segments. Associational — not causal."
-      footnote="Segments may overlap. Chart ordered by payload churned counts."
-      actions={<Badge variant="secondary">Descriptive</Badge>}
+      description="Overlapping descriptive segments. Association only."
     >
       <RateVolumeBarChart
         data={volumeData}
@@ -57,7 +54,7 @@ export function SegmentsSection({ rows }: SegmentsSectionProps) {
           <TableHeader>
             <TableRow className="hover:bg-transparent">
               <TableHead className={dashboardTableHeadClass}>Segment</TableHead>
-              <TableHead className={dashboardTableHeadClass}>SQL label</TableHead>
+              <TableHead className={dashboardTableHeadClass}>Segment rule</TableHead>
               <TableHead className={`${dashboardTableHeadClass} text-right`}>
                 Existing
               </TableHead>

@@ -1,5 +1,7 @@
+import { ChevronDown } from "lucide-react"
+import { useState } from "react"
+
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import {
   Select,
   SelectContent,
@@ -8,6 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { useDashboardFilters } from "@/hooks/use-dashboard-filters"
+import { cn } from "@/lib/utils"
 import type { FilterDimensions, PrimaryFilterKey } from "@/types/dashboard"
 import { PRIMARY_FILTER_KEYS } from "@/types/dashboard"
 
@@ -19,6 +22,12 @@ const FILTER_LABELS: Record<PrimaryFilterKey, string> = {
 
 const ALL_VALUE = "__all__"
 
+const ALL_LABELS: Record<PrimaryFilterKey, string> = {
+  contract: "All contract types",
+  tenure_band: "All tenure bands",
+  internet_type: "All internet types",
+}
+
 type GlobalFiltersProps = {
   dimensions: FilterDimensions | null
   disabled?: boolean
@@ -27,18 +36,51 @@ type GlobalFiltersProps = {
 export function GlobalFilters({ dimensions, disabled = false }: GlobalFiltersProps) {
   const { filters, setFilter, clearFilters, hasActiveFilters } =
     useDashboardFilters()
+  const [mobileControlsOpen, setMobileControlsOpen] = useState(false)
+  const activeCount = PRIMARY_FILTER_KEYS.filter(
+    (key) => filters[key] !== null
+  ).length
+  const statusLabel =
+    activeCount === 0
+      ? "No highlights active"
+      : `${activeCount} highlight${activeCount === 1 ? "" : "s"} active`
 
   return (
     <section
-      aria-label="Global filters"
-      className="dashboard-panel rounded-xl px-4 py-3.5"
+      id="highlight-charts"
+      aria-label="Highlight charts"
+      className="dashboard-panel scroll-mt-6 rounded-xl px-4 py-3"
     >
-      <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
-        <div className="min-w-0 space-y-0.5">
-          <h2 className="text-sm font-semibold tracking-tight">Filters</h2>
-          <p className="text-xs text-muted-foreground">
-            Context for highlighting views. KPI cards stay on the portfolio
-            baseline.
+      <div className="mb-2 flex items-start justify-between gap-2">
+        <div className="min-w-0 flex-1 space-y-0.5">
+          <h2 className="hidden text-sm font-semibold tracking-tight md:block">
+            Highlight charts
+          </h2>
+          <button
+            type="button"
+            onClick={() => setMobileControlsOpen((value) => !value)}
+            aria-expanded={mobileControlsOpen}
+            aria-controls="highlight-controls-body"
+            className="flex min-h-11 w-full items-center justify-between gap-2 text-left md:hidden"
+          >
+            <span className="min-w-0">
+              <span className="block text-sm font-semibold tracking-tight">
+                Highlight charts
+              </span>
+              <span className="block text-xs text-muted-foreground">
+                {statusLabel}
+              </span>
+            </span>
+            <ChevronDown
+              className={cn(
+                "size-4 shrink-0 text-muted-foreground transition-transform",
+                mobileControlsOpen && "rotate-180"
+              )}
+              aria-hidden
+            />
+          </button>
+          <p className="hidden text-xs text-muted-foreground md:block">
+            Highlights matching rows below. KPI totals do not change.
           </p>
         </div>
         <Button
@@ -46,13 +88,20 @@ export function GlobalFilters({ dimensions, disabled = false }: GlobalFiltersPro
           size="sm"
           onClick={clearFilters}
           disabled={disabled || !hasActiveFilters}
-          className="shrink-0"
+          className="h-11 shrink-0 px-3 md:h-8"
         >
-          Clear filters
+          Clear highlights
         </Button>
       </div>
 
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <div
+        id="highlight-controls-body"
+        className={cn(
+          "gap-3 sm:grid-cols-2 lg:grid-cols-3",
+          mobileControlsOpen ? "grid" : "hidden",
+          "md:grid"
+        )}
+      >
         {PRIMARY_FILTER_KEYS.map((key) => {
           const options = dimensions?.[key] ?? []
           const selected = filters[key]
@@ -64,6 +113,13 @@ export function GlobalFilters({ dimensions, disabled = false }: GlobalFiltersPro
                 {FILTER_LABELS[key]}
               </span>
               <Select
+                items={[
+                  { value: ALL_VALUE, label: ALL_LABELS[key] },
+                  ...options.map((option) => ({
+                    value: option,
+                    label: option,
+                  })),
+                ]}
                 value={selectValue}
                 onValueChange={(value) => {
                   if (value == null || value === ALL_VALUE) {
@@ -74,11 +130,13 @@ export function GlobalFilters({ dimensions, disabled = false }: GlobalFiltersPro
                 }}
                 disabled={disabled || options.length === 0}
               >
-                <SelectTrigger className="h-9 w-full bg-background/70">
-                  <SelectValue placeholder={`All ${FILTER_LABELS[key]}`} />
+                <SelectTrigger className="w-full bg-background/70 data-[size=default]:h-11 md:data-[size=default]:h-9">
+                  <SelectValue placeholder={ALL_LABELS[key]}>
+                    {selected ?? ALL_LABELS[key]}
+                  </SelectValue>
                 </SelectTrigger>
                 <SelectContent align="start" alignItemWithTrigger={false}>
-                  <SelectItem value={ALL_VALUE}>All</SelectItem>
+                  <SelectItem value={ALL_VALUE}>{ALL_LABELS[key]}</SelectItem>
                   {options.map((option) => (
                     <SelectItem key={option} value={option}>
                       {option}
@@ -91,22 +149,6 @@ export function GlobalFilters({ dimensions, disabled = false }: GlobalFiltersPro
         })}
       </div>
 
-      {hasActiveFilters ? (
-        <div className="mt-3 flex flex-wrap items-center gap-1.5 border-t border-border/70 pt-3">
-          <span className="text-[11px] text-muted-foreground">Active:</span>
-          {PRIMARY_FILTER_KEYS.map((key) => {
-            const value = filters[key]
-            if (!value) {
-              return null
-            }
-            return (
-              <Badge key={key} variant="secondary" className="font-normal">
-                {FILTER_LABELS[key]}: {value}
-              </Badge>
-            )
-          })}
-        </div>
-      ) : null}
     </section>
   )
 }

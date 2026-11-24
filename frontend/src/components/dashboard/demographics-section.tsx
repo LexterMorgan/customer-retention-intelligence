@@ -38,10 +38,13 @@ export function DemographicsSection({
       id="demographic-breakdowns"
       title="Demographic breakdowns"
       description="Associational view by age band, gender, married status, and dependents."
-      footnote="Band boundaries come from the validated payload / cleaning pipeline."
+      footnote="Band boundaries come from the cleaned Q2 2022 dataset."
     >
       <Tabs defaultValue="age_band" className="gap-3">
-        <TabsList variant="line" className="w-full justify-start gap-1">
+        <TabsList
+          variant="line"
+          className="w-full justify-start gap-1 overflow-x-auto"
+        >
           {TABS.map((item) => (
             <TabsTrigger key={item.value} value={item.value}>
               {item.label}

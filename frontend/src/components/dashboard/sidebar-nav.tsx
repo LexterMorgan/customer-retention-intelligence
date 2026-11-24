@@ -96,8 +96,9 @@ export function SidebarNav({
               key={item.id}
               type="button"
               onClick={() => onNavigate?.(item.id)}
+              aria-current={active ? "page" : undefined}
               className={cn(
-                "group relative flex items-start gap-2.5 rounded-lg px-2.5 py-2 text-left transition-colors",
+                "group relative flex items-start gap-2.5 rounded-lg px-2.5 py-2 text-left transition-colors focus-visible:ring-2 focus-visible:ring-sidebar-ring focus-visible:outline-none",
                 active
                   ? "bg-sidebar-accent text-sidebar-accent-foreground"
                   : "text-muted-foreground hover:bg-sidebar-accent/50 hover:text-sidebar-foreground",
@@ -135,7 +136,7 @@ export function SidebarNav({
 
       {!collapsed ? (
         <div className="border-t border-sidebar-border px-3 py-3 text-[11px] leading-relaxed text-muted-foreground">
-          Validated payload · Q2 2022
+          Q2 2022 snapshot
         </div>
       ) : null}
     </aside>

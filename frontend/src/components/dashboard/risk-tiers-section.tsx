@@ -7,7 +7,6 @@ import {
   dashboardTableHeadClass,
   dashboardTableWrapClass,
 } from "@/components/dashboard/table-styles"
-import { Badge } from "@/components/ui/badge"
 import {
   Table,
   TableBody,
@@ -40,9 +39,7 @@ export function RiskTiersSection({ rows }: RiskTiersSectionProps) {
     <SectionCard
       id="risk-tiers"
       title="Descriptive Churn Risk Tiers"
-      description="Rule-based descriptive segments — not predictive probabilities."
-      footnote="Descriptive / rule-based churn risk tiers. Association only."
-      actions={<Badge variant="secondary">Not predictive</Badge>}
+      description="Rule-based descriptive segments. Not predictive probabilities. Association only."
     >
       <div className="space-y-2">
         <h3 className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">
