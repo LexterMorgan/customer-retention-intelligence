@@ -10,7 +10,10 @@ import { Button } from "@/components/ui/button"
  */
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme()
-  const isDark = theme !== "light"
+  const isDark =
+    theme === "dark" ||
+    (theme === "system" &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
   const nextTheme = isDark ? "light" : "dark"
   const label = `Switch to ${nextTheme} theme`
 

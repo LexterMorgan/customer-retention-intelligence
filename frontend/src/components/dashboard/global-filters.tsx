@@ -49,9 +49,9 @@ export function GlobalFilters({ dimensions, disabled = false }: GlobalFiltersPro
     <section
       id="highlight-charts"
       aria-label="Highlight charts"
-      className="dashboard-panel scroll-mt-6 rounded-xl px-4 py-3"
+      className="scroll-mt-24 border-y border-border/70 py-2 sm:py-2.5"
     >
-      <div className="mb-2 flex items-start justify-between gap-2">
+      <div className="mb-1.5 flex items-start justify-between gap-2 sm:mb-2">
         <div className="min-w-0 flex-1 space-y-0.5">
           <h2 className="hidden text-sm font-semibold tracking-tight md:block">
             Highlight charts

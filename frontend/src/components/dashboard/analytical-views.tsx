@@ -29,6 +29,14 @@ function SectionIntro({
   )
 }
 
+function SubsectionHeading({ children }: { children: string }) {
+  return (
+    <h3 className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+      {children}
+    </h3>
+  )
+}
+
 export function AnalyticalViews({ payload }: AnalyticalViewsProps) {
   const { filters } = useDashboardFilters()
 
@@ -36,23 +44,15 @@ export function AnalyticalViews({ payload }: AnalyticalViewsProps) {
     <div className="flex flex-col gap-7 lg:gap-8">
       <section
         id="evidence-breakdowns"
-        aria-label="Evidence and breakdowns"
-        className="scroll-mt-6 space-y-3.5"
+        aria-label="Churn by segment"
+        className="scroll-mt-12 space-y-3.5"
       >
         <SectionIntro
-          title="Churn breakdowns"
-          subtitle="Churn rate by contract, internet type, and tenure. Headline KPIs stay full-dataset."
+          title="Churn by segment"
+          subtitle="Internet type and tenure. Headline figures stay full-dataset."
         />
 
         <div className="grid gap-3.5 xl:grid-cols-2">
-          <BreakdownSection
-            id="contract-breakdown"
-            title="Contract breakdown"
-            description="Churn rate by Contract."
-            rows={payload.by_contract}
-            highlightCategory={filters.contract}
-            footnote="Share of churn uses the all-churn denominator from the payload."
-          />
           <BreakdownSection
             id="internet-breakdown"
             title="Internet Type breakdown"
@@ -61,16 +61,15 @@ export function AnalyticalViews({ payload }: AnalyticalViewsProps) {
             highlightCategory={filters.internet_type}
             excludeCategories={["N/A"]}
           />
+          <BreakdownSection
+            id="tenure-breakdown"
+            title="Tenure breakdown"
+            description="Churn rate by Tenure Band (established lifecycle order)."
+            rows={payload.by_tenure}
+            highlightCategory={filters.tenure_band}
+            chartLayout="vertical"
+          />
         </div>
-
-        <BreakdownSection
-          id="tenure-breakdown"
-          title="Tenure breakdown"
-          description="Churn rate by Tenure Band (established lifecycle order)."
-          rows={payload.by_tenure}
-          highlightCategory={filters.tenure_band}
-          chartLayout="vertical"
-        />
       </section>
 
       <ExecutiveInsights payload={payload} />
@@ -78,11 +77,11 @@ export function AnalyticalViews({ payload }: AnalyticalViewsProps) {
       <section
         id="drivers"
         aria-label="Churn drivers"
-        className="scroll-mt-6 space-y-3.5"
+        className="scroll-mt-12 space-y-6"
       >
         <SectionIntro
-          title="Drivers & concentration"
-          subtitle="Offer, billing, demographics, self-reported exit themes, and Contract × Tenure concentration."
+          title="Drivers"
+          subtitle="Offer, billing, demographics, self-reported exit themes, and contract × tenure concentration."
         />
 
         <BreakdownSection
@@ -92,38 +91,56 @@ export function AnalyticalViews({ payload }: AnalyticalViewsProps) {
           rows={payload.by_offer}
         />
 
-        <BillingSection billing={payload.by_billing} />
-        <DemographicsSection demographics={payload.by_demographics} />
+        <div className="space-y-2">
+          <SubsectionHeading>Billing and demographics</SubsectionHeading>
+          <div className="grid gap-3.5 xl:grid-cols-2">
+            <BillingSection billing={payload.by_billing} />
+            <DemographicsSection demographics={payload.by_demographics} />
+          </div>
+        </div>
 
-        <ChurnReasonsSection
-          totalChurned={payload.churn_reasons.total_churned}
-          categories={payload.churn_reasons.categories}
-          topReasons={payload.churn_reasons.top_5_reasons}
-        />
+        <div className="space-y-2">
+          <SubsectionHeading>Self-reported exit themes</SubsectionHeading>
+          <ChurnReasonsSection
+            totalChurned={payload.churn_reasons.total_churned}
+            categories={payload.churn_reasons.categories}
+            topReasons={payload.churn_reasons.top_5_reasons}
+          />
+        </div>
 
-        <ContractTenureSection
-          matrix={payload.contract_tenure_matrix}
-          highlightContract={filters.contract}
-          highlightTenure={filters.tenure_band}
-        />
+        <div className="space-y-2">
+          <SubsectionHeading>Contract × tenure concentration</SubsectionHeading>
+          <ContractTenureSection
+            matrix={payload.contract_tenure_matrix}
+            highlightContract={filters.contract}
+            highlightTenure={filters.tenure_band}
+          />
+        </div>
       </section>
 
       <section
         id="risk-segments"
         aria-label="Risk tiers and segments"
-        className="scroll-mt-6 space-y-3.5"
+        className="scroll-mt-12 space-y-6"
       >
         <SectionIntro
-          title="Risk & segments"
-          subtitle="Rule-based risk tiers, overlapping descriptive segments, then value impact."
+          title="Risk & Segments"
+          subtitle="Rule-based tiers, overlapping descriptive segments, then the illustrative scenario."
         />
 
         <RiskTiersSection rows={payload.risk_tiers} />
         <SegmentsSection rows={payload.segments} />
-        <MrvlScenarioSection mrvl={payload.mrvl} scenario={payload.scenario} />
+
+        <div className="space-y-2">
+          <SubsectionHeading>Illustrative scenario</SubsectionHeading>
+          <MrvlScenarioSection
+            mrvl={payload.mrvl}
+            scenario={payload.scenario}
+          />
+        </div>
       </section>
 
-      <aside className="dashboard-panel space-y-1.5 px-4 py-3.5">
+      <aside className="space-y-1.5 border-t border-border/70 pt-5">
         <p className="text-xs font-semibold tracking-tight">
           Analytical disclaimers
         </p>

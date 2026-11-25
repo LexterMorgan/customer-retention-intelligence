@@ -48,7 +48,7 @@ type RateVolumeBarChartProps = {
   heightClassName?: string
 }
 
-function truncateLabel(value: string, max = 22) {
+function truncateLabel(value: string, max = 26) {
   if (value.length <= max) {
     return value
   }
@@ -71,7 +71,7 @@ export function RateVolumeBarChart({
       (max, point) => Math.max(max, point.label.length),
       0
     )
-    return Math.min(168, Math.max(96, longest * 6.4))
+    return Math.min(208, Math.max(112, longest * 7.2))
   }, [data])
 
   const chartHeightPx = useMemo(() => {

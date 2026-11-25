@@ -33,11 +33,11 @@ export function SectionCard({
       id={id}
       size="sm"
       className={cn(
-        "scroll-mt-6 gap-0 rounded-lg border border-border/60 py-0 shadow-none ring-0",
+        "min-w-0 scroll-mt-12 gap-0 overflow-visible border-0 bg-transparent py-0 shadow-none ring-0 [box-shadow:none]",
         className
       )}
     >
-      <CardHeader className="gap-1 px-4 pt-3 pb-1">
+      <CardHeader className="gap-1 rounded-none border-t border-border/70 px-0 pt-6 pb-2">
         <div className="flex flex-wrap items-start justify-between gap-2">
           <div className="min-w-0 space-y-0.5">
             <CardTitle className="dashboard-card-title">{title}</CardTitle>
@@ -50,7 +50,7 @@ export function SectionCard({
           {actions}
         </div>
       </CardHeader>
-      <CardContent className="gap-3 px-4 py-3.5">
+      <CardContent className="gap-3 px-0 py-0">
         {children}
         {footnote ? <p className="dashboard-footnote">{footnote}</p> : null}
       </CardContent>

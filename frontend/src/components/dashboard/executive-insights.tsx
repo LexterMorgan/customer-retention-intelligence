@@ -55,6 +55,32 @@ export function ExecutiveInsights({ payload }: ExecutiveInsightsProps) {
             {EVIDENCE_LINKS[insight.id] ? (
               <a
                 href={`#${EVIDENCE_LINKS[insight.id]}`}
+                onClick={(event) => {
+                  const targetId = EVIDENCE_LINKS[insight.id]
+                  if (
+                    targetId !== "contract-breakdown" ||
+                    event.metaKey ||
+                    event.ctrlKey ||
+                    event.shiftKey ||
+                    event.altKey
+                  ) {
+                    return
+                  }
+                  const disclosure =
+                    document.getElementById("contract-breakdown")
+                  if (disclosure instanceof HTMLDetailsElement) {
+                    disclosure.open = true
+                    requestAnimationFrame(() => {
+                      const table =
+                        document.getElementById("contract-breakdown-table")
+                      table?.focus({ preventScroll: true })
+                      table?.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      })
+                    })
+                  }
+                }}
                 className="mt-2 inline-block text-[11px] font-medium text-foreground underline underline-offset-2 hover:text-primary"
               >
                 View evidence
